@@ -5,6 +5,7 @@ AllCops:
   Exclude:
     - "node_modules/**/*" # rubocop config/default.yml
     - "vendor/**/*" # rubocop config/default.yml
+    - "db/migrate/20210730031525_create_active_storage_tables.active_storage.rb" # ActiveStrageの自動生成ファイルなので除外する。
     - "db/schema.rb"
     - "bin/bundle"
 
