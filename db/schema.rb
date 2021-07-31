@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_31_040711) do
+ActiveRecord::Schema.define(version: 2021_07_31_055250) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -73,6 +73,21 @@ ActiveRecord::Schema.define(version: 2021_07_31_040711) do
     t.index ["user_id"], name: "index_likes_on_user_id"
   end
 
+  create_table "tag_maps", force: :cascade do |t|
+    t.bigint "article_id", null: false
+    t.bigint "tag_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["article_id"], name: "index_tag_maps_on_article_id"
+    t.index ["tag_id"], name: "index_tag_maps_on_tag_id"
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.string "tag_name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "name", null: false
     t.string "profile"
@@ -94,4 +109,6 @@ ActiveRecord::Schema.define(version: 2021_07_31_040711) do
   add_foreign_key "keeps", "users"
   add_foreign_key "likes", "articles"
   add_foreign_key "likes", "users"
+  add_foreign_key "tag_maps", "articles"
+  add_foreign_key "tag_maps", "tags"
 end
