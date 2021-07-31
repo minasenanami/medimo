@@ -5,6 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_one_attached :avatar
+  has_many :articles, dependent: :destroy
+  has_many :likes, dependent: :destroy
 
   validates :name, presence: true
   validates :profile, length: { maximum: 200 }
