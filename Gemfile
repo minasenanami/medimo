@@ -33,6 +33,7 @@ gem "mini_magick"
 
 # ログイン機能
 gem "devise"
+gem "devise-bootstrap-views", "~> 1.0"
 
 # 日本語化対応
 gem "devise-i18n"
