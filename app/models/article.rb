@@ -1,7 +1,6 @@
 class Article < ApplicationRecord
   with_options presence: true do
     validates :title
-    validates :content
     validates :status
   end
 
@@ -20,4 +19,7 @@ class Article < ApplicationRecord
 
   has_many :tag_maps, dependent: :destroy
   has_many :tags, through: :tag_maps
+
+  has_rich_text :content
+  has_many_attached :images
 end
