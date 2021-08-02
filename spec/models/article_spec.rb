@@ -34,4 +34,22 @@ RSpec.describe Article, type: :model do
       end
     end
   end
+
+  describe "異常系" do
+    context "titleが無いとき" do
+      let(:article) { build(:article, title: nil) }
+      it "記事の作成に失敗する" do
+        expect(article).to be_invalid
+        expect(article.errors.details[:title][0][:error]).to eq :blank
+      end
+    end
+
+    context "contentが無いとき" do
+      let(:article) { build(:article, content: nil) }
+      it "記事の作成に失敗する" do
+        expect(article).to be_invalid
+        expect(article.errors.details[:content][0][:error]).to eq :blank
+      end
+    end
+  end
 end
