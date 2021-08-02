@@ -1,0 +1,12 @@
+<%= form_with model: @article, local: true do |f| %>
+  <p>
+    <%= f.label :title  %>
+    <%= f.text_field :title, required: true %>
+  </p>
+  <p>
+    <%= f.label :content %>
+    <%= f.rich_text_area :content %>
+  </p>
+  <%= f.select :status, Article.statuses_i18n.invert %>
+  <%= f.submit "送信" %>
+<% end %>
