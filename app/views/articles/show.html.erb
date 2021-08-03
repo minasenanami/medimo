@@ -1,2 +1,11 @@
-<h1>Articles#show</h1>
-<p>Find me in app/views/articles/show.html.erb</p>
+<%= "#{@article.user.name} が#{l @article.updated_at, format: :medium}に更新" %>
+<h1><%= @article.title %></h1>
+<%= @article.content %>
+
+<% if current_user.id == @article.user_id %>
+  <p>
+    <%= link_to "編集", edit_article_path(@article) %>
+    <%= link_to "削除", article_path(@article), method: :delete, data: { confirm: "削除しますか？" } %>
+  </p>
+<% end %>
+<%= link_to "投稿一覧へ", root_path %>
