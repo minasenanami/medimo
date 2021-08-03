@@ -27,6 +27,9 @@ class ArticlesController < ApplicationController
   end
 
   def destroy
+    @article = current_user.articles.find(params[:id])
+    @article.destroy!
+    redirect_to root_path
   end
 
   private

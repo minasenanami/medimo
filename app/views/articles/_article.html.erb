@@ -1,5 +1,6 @@
 <div>
   <%= link_to "#{article.user.name}" %>
+  <p><%= l article.created_at, format: :medium %></p>
   <h4><%= link_to "#{article.title}", article_path(article) %></h4>
   <hr>
 </div>
