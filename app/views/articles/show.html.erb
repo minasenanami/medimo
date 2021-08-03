@@ -5,12 +5,11 @@
 
 <p>
   <% if @article.liked_by?(current_user) %>
-    <%# 「いいね！」済み %>
-    <%= "★ #{@article.likes_count}" %>
+    <%= render "like", article: @article %>
   <% else %>
-    <%# 「いいね」していない %>
-    <%= "☆ #{@article.likes_count}" %>
+    <%= render "dislike", article: @article %>
   <% end %>
+  <%= "#{@article.likes_count}" %>
 </p>
 
 <% if @article.user == current_user %>
