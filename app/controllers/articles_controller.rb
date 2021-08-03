@@ -13,6 +13,7 @@ class ArticlesController < ApplicationController
   end
 
   def edit
+    @article = current_user.articles.find(params[:id])
   end
 
   def show
