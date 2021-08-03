@@ -3,13 +3,12 @@
 <%= @article.content %>
 
 
-<p>
+<p id="article-<%= @article.id %>">
   <% if @article.liked_by?(current_user) %>
     <%= render "like", article: @article %>
   <% else %>
     <%= render "dislike", article: @article %>
   <% end %>
-  <%= "#{@article.likes_count}" %>
 </p>
 
 <% if @article.user == current_user %>
