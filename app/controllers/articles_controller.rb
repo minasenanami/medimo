@@ -21,6 +21,9 @@ class ArticlesController < ApplicationController
   end
 
   def update
+    @article = current_user.articles.find(params[:id])
+    @article.update!(article_params)
+    redirect_to article_path
   end
 
   def destroy
