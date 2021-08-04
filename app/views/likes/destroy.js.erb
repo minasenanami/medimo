@@ -1,1 +1,1 @@
-document.getElementById('article-<%= @article.id %>').innerHTML = '<%= j render("articles/dislike", article: @article) %>'
+document.getElementById('article-like-<%= @article.id %>').innerHTML = '<%= j render("articles/dislike", article: @article) %>'
