@@ -26,4 +26,8 @@ class Article < ApplicationRecord
   def liked_by?(user)
     likes.any? {|like| like.user_id == user.id }
   end
+
+  def kept_by?(user)
+    keeps.any? {|keep| keep.user_id == user.id }
+  end
 end

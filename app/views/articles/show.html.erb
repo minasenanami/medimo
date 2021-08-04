@@ -10,6 +10,13 @@
       <%= render "dislike", article: @article %>
     <% end %>
   </p>
+
+  <% if @article.kept_by?(current_user) %>
+    <%= render "keep", article: @article %>
+  <% else %>
+    <%= render "dontkeep", article: @article %>
+  <% end %>
+
 <% else %>
   <%= render "nonmember"%>
 <% end %>
