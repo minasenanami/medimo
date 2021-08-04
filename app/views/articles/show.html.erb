@@ -3,7 +3,7 @@
 <%= @article.content %>
 
 <% if user_signed_in? %>
-  <p id="article-<%= @article.id %>">
+  <p id="article-like-<%= @article.id %>">
     <% if @article.liked_by?(current_user) %>
       <%= render "like", article: @article %>
     <% else %>
@@ -11,11 +11,13 @@
     <% end %>
   </p>
 
-  <% if @article.kept_by?(current_user) %>
-    <%= render "keep", article: @article %>
-  <% else %>
-    <%= render "dontkeep", article: @article %>
-  <% end %>
+  <p id="article-keep-<%= @article.id %>">
+    <% if @article.kept_by?(current_user) %>
+      <%= render "keep", article: @article %>
+    <% else %>
+      <%= render "dontkeep", article: @article %>
+    <% end %>
+  </p>
 
 <% else %>
   <%= render "nonmember"%>
