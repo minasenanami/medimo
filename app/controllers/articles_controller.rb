@@ -12,18 +12,20 @@ class ArticlesController < ApplicationController
 
   def create
     @article = current_user.articles.new(article_params)
-    tag_list = params[:article][:tag_name].split(nil)
+    @tag_list = params[:article][:tag_name].split(nil)
 
     if @article.save
       @article.save_tag(tag_list)
       redirect_to article_path(@article)
     else
+      flash.now[:alert] = "タイトルを記入してください"
       render :new
     end
   end
 
   def edit
     if @article.user == current_user
+      @tag_list = @article.tags.pluck(:tag_name).join(" ")
       render :edit
     else
       redirect_to root_path, alert: "記事の編集はできません"
@@ -36,8 +38,14 @@ class ArticlesController < ApplicationController
   end
 
   def update
-    @article.update!(article_params)
-    redirect_to article_path
+    tag_list = params[:article][:tag_name].split(nil)
+    if @article.update(article_params)
+      @article.save_tag(tag_list)
+      redirect_to article_path(@article)
+    else
+      flash.now[:alert] = "タイトルを記入してください"
+      render :edit
+    end
   end
 
   def destroy
