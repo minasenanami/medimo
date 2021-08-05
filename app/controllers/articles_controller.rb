@@ -11,8 +11,15 @@ class ArticlesController < ApplicationController
   end
 
   def create
-    @article = current_user.articles.create!(article_params)
-    redirect_to root_path
+    @article = current_user.articles.new(article_params)
+    tag_list = params[:article][:tag_name].split(nil)
+
+    if @article.save
+      @article.save_tag(tag_list)
+      redirect_to article_path(@article)
+    else
+      render :new
+    end
   end
 
   def edit
@@ -25,6 +32,7 @@ class ArticlesController < ApplicationController
 
   def show
     @article = Article.published.find(params[:id])
+    @article_tags = @article.tags
   end
 
   def update
