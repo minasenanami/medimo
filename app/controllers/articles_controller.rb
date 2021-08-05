@@ -34,6 +34,7 @@ class ArticlesController < ApplicationController
 
   def show
     @article = Article.published.find(params[:id])
+    @article_tags = @article.tags
   end
 
   def update

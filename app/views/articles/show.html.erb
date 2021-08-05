@@ -1,4 +1,9 @@
 <%= "#{@article.user.name} が#{l @article.updated_at, format: :medium}に更新" %>
+
+<p>タグ
+  <%= render "tags" %>
+</p>
+
 <h1><%= @article.title %></h1>
 <%= @article.content %>
 
