@@ -13,4 +13,7 @@ Rails.application.routes.draw do
     resource :likes, only: [:create, :destroy]
     resource :keeps, only: [:create, :destroy]
   end
+  resources :tags do
+    get "articles", to: "articles#search"
+  end
 end

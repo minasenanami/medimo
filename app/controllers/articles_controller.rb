@@ -53,6 +53,11 @@ class ArticlesController < ApplicationController
     redirect_to root_path
   end
 
+  def search
+    @tag = Tag.find(params[:tag_id])
+    @articles = @tag.articles.published.all
+  end
+
   private
 
     def article_params

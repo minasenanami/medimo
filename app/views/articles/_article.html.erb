@@ -2,7 +2,7 @@
   <%= link_to "#{article.user.name}" %>
   <p>タグ
     <% article.tags.each do |tag| %>
-      <span><%= link_to tag.tag_name %></span>
+      <span><%= link_to tag.tag_name,tag_articles_path(tag_id: tag.id) %></span>
     <% end %>
   </p>
   <p><%= l article.created_at, format: :medium %></p>
