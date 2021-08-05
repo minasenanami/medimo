@@ -12,10 +12,10 @@ class ArticlesController < ApplicationController
 
   def create
     @article = current_user.articles.new(article_params)
-    @tag_list = params[:article][:tag_name].split(nil)
+    @tag_list = params[:article][:tag_name].split(/[[:blank:]]/)
 
     if @article.save
-      @article.save_tag(tag_list)
+      @article.save_tag(@tag_list)
       redirect_to article_path(@article)
     else
       flash.now[:alert] = "タイトルを記入してください"
@@ -34,11 +34,10 @@ class ArticlesController < ApplicationController
 
   def show
     @article = Article.published.find(params[:id])
-    @article_tags = @article.tags
   end
 
   def update
-    tag_list = params[:article][:tag_name].split(nil)
+    tag_list = params[:article][:tag_name].split(/[[:blank:]]/)
     if @article.update(article_params)
       @article.save_tag(tag_list)
       redirect_to article_path(@article)
