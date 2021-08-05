@@ -33,7 +33,7 @@ class ArticlesController < ApplicationController
   end
 
   def show
-    @article = Article.published.find(params[:id])
+    @article = Article.find(params[:id])
     @article_tags = @article.tags
   end
 
