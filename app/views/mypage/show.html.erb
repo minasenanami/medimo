@@ -1,0 +1,12 @@
+<h1>マイページ</h1>
+<p>名前</p>
+<%= @user.name %>
+<p>投稿本数</p>
+<%= @user.articles.count %>本
+<p>プロフィール</p>
+<%= @user.profile %>
+
+<p>投稿記事</p>
+
+<%= render @articles %>
+<%= paginate @articles %>
