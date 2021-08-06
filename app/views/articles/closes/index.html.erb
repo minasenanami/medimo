@@ -1,4 +1,4 @@
 <h1>非公開記事一覧</h1>
 <% @closed_articles.each do |article| %>
-  <p><%= link_to article.title, article_path(article) %></p>
+  <p><%= link_to article.title, articles_close_path(article) %></p>
 <%end  %>

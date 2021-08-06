@@ -11,7 +11,7 @@ Rails.application.routes.draw do
 
   namespace :articles do
     resources :drafts, only: [:index]
-    resources :closes, only: [:index]
+    resources :closes, only: [:index, :show]
   end
 
   resources :articles do
