@@ -9,6 +9,10 @@ Rails.application.routes.draw do
     post "users/guest_sign_in", to: "users/sessions#guest_sign_in"
   end
 
+  namespace :articles do
+    resources :drafts, only: [:index]
+  end
+
   resources :articles do
     resource :likes, only: [:create, :destroy]
     resource :keeps, only: [:create, :destroy]
