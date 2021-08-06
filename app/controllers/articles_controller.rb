@@ -3,7 +3,8 @@ class ArticlesController < ApplicationController
   before_action :authenticate_user!, only: %i[create update destroy]
 
   def index
-    @articles = Article.published.order(updated_at: :desc)
+    @q = Article.published.ransack(params[:q])
+    @search_articles = @q.result
   end
 
   def new
