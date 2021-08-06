@@ -5,7 +5,6 @@ class ArticlesController < ApplicationController
   def index
     @q = Article.published.ransack(params[:q])
     @search_articles = @q.result
-    @articles = Article.published.order(updated_at: :desc)
   end
 
   def new

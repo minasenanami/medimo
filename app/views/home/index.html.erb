@@ -1,0 +1,9 @@
+<%= search_form_for @q, url: articles_path do |f| %>
+  <%= f.label :title, "記事・タグ検索" %>
+  <%= f.search_field :title_or_tags_tag_name_cont, placeholder: "キーワードを入力", required: true %>
+  <%= f.submit "検索" %>
+<% end %>
+
+
+<h1>最新の投稿一覧</h1>
+<%= render @articles %>
