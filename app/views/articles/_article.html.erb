@@ -1,5 +1,5 @@
 <div>
-  <%= link_to "#{article.user.name}" %>
+  <%= link_to "#{article.user.name}", mypage_path(article.user.id) %>
   <p>タグ
     <% article.tags.each do |tag| %>
       <span><%= link_to tag.tag_name,tag_articles_path(tag_id: tag.id) %></span>
