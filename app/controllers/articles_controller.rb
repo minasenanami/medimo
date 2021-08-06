@@ -4,7 +4,7 @@ class ArticlesController < ApplicationController
 
   def index
     @q = Article.published.ransack(params[:q])
-    @search_articles = @q.result
+    @search_articles = @q.result.page(params[:page]).per(PER_PAGE)
   end
 
   def new
@@ -56,7 +56,7 @@ class ArticlesController < ApplicationController
 
   def search
     @tag = Tag.find(params[:tag_id])
-    @articles = @tag.articles.published.all
+    @articles = @tag.articles.published.order(updated_at: :desc).page(params[:page]).per(PER_PAGE)
   end
 
   private
