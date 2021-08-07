@@ -1,3 +1,6 @@
+User.destroy_all
+Article.destroy_all
+
 name = "test_user"
 email = "test@example.com"
 password = "password"
