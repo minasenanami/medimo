@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
-  before_action :set_article, only: %i[edit update destroy]
+  before_action :set_article, only: %i[edit update destroy show]
   before_action :authenticate_user!, only: %i[create update destroy]
 
   def index
@@ -34,7 +34,6 @@ class ArticlesController < ApplicationController
   end
 
   def show
-    @article = Article.find(params[:id])
     @article_tags = @article.tags
   end
 
@@ -66,6 +65,6 @@ class ArticlesController < ApplicationController
     end
 
     def set_article
-      @article = Article.find(params[:id])
+      @article = Article.published.find(params[:id])
     end
 end
