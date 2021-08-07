@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   }
   devise_scope :user do
     post "users/guest_sign_in", to: "users/sessions#guest_sign_in"
+    get "profile_edit", to: "users/registrations#profile_edit", as: "profile_edit"
+    patch "profile_update", to: "users/registrations#profile_update", as: "profile_update"
   end
 
   namespace :articles do
