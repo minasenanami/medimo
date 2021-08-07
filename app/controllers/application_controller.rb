@@ -12,4 +12,11 @@ class ApplicationController < ActionController::Base
       # アカウント編集の時にnameとprofileとavatarのストロングパラメータを追加
       devise_parameter_sanitizer.permit(:account_update, keys: [:name, :profile, :avatar])
     end
+
+    def correct_user
+      @article = current_user.articles.closed.find_by(id: params[:id])
+      unless @article
+        redirect_to root_path, alert: "指定した記事は閲覧できません"
+      end
+    end
 end
