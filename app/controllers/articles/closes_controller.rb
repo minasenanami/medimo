@@ -1,5 +1,6 @@
 class Articles::ClosesController < ApplicationController
   before_action :closed_owner, only: [:show]
+  before_action :authenticate_user!, only: %i[index show]
   def index
     @closed_articles = current_user.articles.closed.order(updated_at: :desc)
   end

@@ -1,5 +1,6 @@
 class Articles::DraftsController < ApplicationController
   before_action :draft_owner, only: [:show]
+  before_action :authenticate_user!, only: %i[index show]
 
   def index
     @draft_articles = current_user.articles.draft.order(updated_at: :desc)
