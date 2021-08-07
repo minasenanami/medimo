@@ -1,5 +1,6 @@
 class ArticlesController < ApplicationController
-  before_action :set_article, only: %i[edit update destroy show]
+  before_action :correct_user, only: [:edit]
+  before_action :set_edit_article, only: %i[edit update destroy]
   before_action :authenticate_user!, only: %i[create update destroy]
 
   def index
@@ -34,6 +35,7 @@ class ArticlesController < ApplicationController
   end
 
   def show
+    @article = Article.published.find(params[:id])
     @article_tags = @article.tags
   end
 
@@ -41,7 +43,15 @@ class ArticlesController < ApplicationController
     tag_list = params[:article][:tag_name].split(/[[:blank:]]/)
     if @article.update(article_params)
       @article.save_tag(tag_list)
-      redirect_to article_path(@article)
+
+      case @article.status
+      when "published"
+        redirect_to article_path(@article)
+      when "draft"
+        redirect_to articles_draft_path(@article)
+      when "closed"
+        redirect_to articles_close_path(@article)
+      end
     else
       flash.now[:alert] = "タイトルを記入してください"
       render :edit
@@ -50,7 +60,7 @@ class ArticlesController < ApplicationController
 
   def destroy
     @article.destroy!
-    redirect_to root_path
+    redirect_to mypage_path(current_user)
   end
 
   def search
@@ -64,7 +74,14 @@ class ArticlesController < ApplicationController
       params.require(:article).permit(:title, :content, :images, :status)
     end
 
-    def set_article
-      @article = Article.published.find(params[:id])
+    def set_edit_article
+      @article = current_user.articles.find(params[:id])
+    end
+
+    def correct_user
+      @article = current_user.articles.find_by(id: params[:id])
+      unless @article
+        redirect_to root_path, alert: "指定した記事は閲覧できません"
+      end
     end
 end
