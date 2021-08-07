@@ -10,8 +10,8 @@ Rails.application.routes.draw do
   end
 
   namespace :articles do
-    resources :drafts, only: [:index]
-    resources :closes, only: [:index]
+    resources :drafts, only: [:index, :show]
+    resources :closes, only: [:index, :show]
   end
 
   resources :articles do
