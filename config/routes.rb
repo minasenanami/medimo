@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   root "home#index"
-  resources :mypage, only: [:show]
+  resources :mypage, only: [:show, :index]
 
   devise_for :users, controllers: {
     registrations: "users/registrations",
