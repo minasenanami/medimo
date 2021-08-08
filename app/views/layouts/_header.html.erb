@@ -14,6 +14,7 @@
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
             <li class="dropdown-item"><%= link_to "投稿する", new_article_path %></li>
             <li class="dropdown-item"><%= link_to "マイページ", mypage_path(current_user) %></li>
+            <li class="dropdown-item"><%= link_to "保存記事一覧", mypage_index_path %></li>
             <li class="dropdown-item"><%= link_to "下書き記事一覧", articles_drafts_path %></li>
             <li class="dropdown-item"><%= link_to "非公開記事一覧", articles_closes_path %></li>
             <li class="dropdown-item"><%= link_to "アカウント編集", edit_user_registration_path %></li>
