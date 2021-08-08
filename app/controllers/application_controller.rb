@@ -4,6 +4,10 @@ class ApplicationController < ActionController::Base
 
   PER_PAGE = 10
 
+  def after_sign_in_path_for(resource)
+    mypage_path(current_user)
+  end
+
   protected
 
     def configure_permitted_parameters
