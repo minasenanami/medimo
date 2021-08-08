@@ -20,11 +20,11 @@ class ArticlesController < ApplicationController
       @article.save_tag(@tag_list)
       case @article.status
       when "published"
-        redirect_to article_path
+        redirect_to article_path(@article)
       when "draft"
-        redirect_to articles_draft_path
+        redirect_to articles_draft_path(@article)
       when "closed"
-        redirect_to articles_close_path
+        redirect_to articles_close_path(@article)
       end
     else
       flash.now[:alert] = "タイトルを記入してください"
