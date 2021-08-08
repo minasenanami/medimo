@@ -25,6 +25,7 @@ ja:
         content: 本文
         status: 公開範囲
         user: ユーザー
+        tag_name: タグ
       keep:
         user: ユーザー
         article: 記事
