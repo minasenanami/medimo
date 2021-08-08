@@ -18,7 +18,14 @@ class ArticlesController < ApplicationController
 
     if @article.save
       @article.save_tag(@tag_list)
-      redirect_to article_path(@article)
+      case @article.status
+      when "published"
+        redirect_to article_path
+      when "draft"
+        redirect_to articles_draft_path
+      when "closed"
+        redirect_to articles_close_path
+      end
     else
       flash.now[:alert] = "タイトルを記入してください"
       render :new
@@ -46,11 +53,11 @@ class ArticlesController < ApplicationController
 
       case @article.status
       when "published"
-        redirect_to article_path(@article)
+        redirect_to article_path
       when "draft"
-        redirect_to articles_draft_path(@article)
+        redirect_to articles_draft_path
       when "closed"
-        redirect_to articles_close_path(@article)
+        redirect_to articles_close_path
       end
     else
       flash.now[:alert] = "タイトルを記入してください"
