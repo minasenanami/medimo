@@ -18,14 +18,7 @@ class ArticlesController < ApplicationController
 
     if @article.save
       @article.save_tag(@tag_list)
-      case @article.status
-      when "published"
-        redirect_to article_path(@article)
-      when "draft"
-        redirect_to articles_draft_path(@article)
-      when "closed"
-        redirect_to articles_close_path(@article)
-      end
+      choose_status
     else
       flash.now[:alert] = "タイトルを記入してください"
       render :new
@@ -50,15 +43,7 @@ class ArticlesController < ApplicationController
     tag_list = params[:article][:tag_name].split(/[[:blank:]]/)
     if @article.update(article_params)
       @article.save_tag(tag_list)
-
-      case @article.status
-      when "published"
-        redirect_to article_path
-      when "draft"
-        redirect_to articles_draft_path
-      when "closed"
-        redirect_to articles_close_path
-      end
+      choose_status
     else
       flash.now[:alert] = "タイトルを記入してください"
       render :edit
@@ -89,6 +74,17 @@ class ArticlesController < ApplicationController
       @article = current_user.articles.find_by(id: params[:id])
       unless @article
         redirect_to root_path, alert: "指定した記事は閲覧できません"
+      end
+    end
+
+    def choose_status
+      case @article.status
+      when "published"
+        redirect_to article_path @article
+      when "draft"
+        redirect_to articles_draft_path @article
+      when "closed"
+        redirect_to articles_close_path @article
       end
     end
 end
