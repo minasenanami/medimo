@@ -79,11 +79,11 @@ class ArticlesController < ApplicationController
 
     def choose_status
       case @article.status
-      when "published"
+      when PABULISHED
         redirect_to article_path @article
-      when "draft"
+      when DRAFT
         redirect_to articles_draft_path @article
-      when "closed"
+      when CLOSED
         redirect_to articles_close_path @article
       end
     end

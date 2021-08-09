@@ -2,7 +2,13 @@ class ApplicationController < ActionController::Base
   # deviseコントローラーのストロングパラメータに追加
   before_action :configure_permitted_parameters, if: :devise_controller?
 
+  # kaminariのページ単位の表示数
   PER_PAGE = 10
+
+  # 記事の公開レベルの定数化
+  PABULISHED = "published".freeze
+  DRAFT = "draft".freeze
+  CLOSED = "closed".freeze
 
   def after_sign_in_path_for(resource)
     mypage_path(current_user)
