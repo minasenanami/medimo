@@ -8,4 +8,8 @@ module ApplicationHelper
       "mw-xl"
     end
   end
+
+  def author?(article)
+    article.user == current_user
+  end
 end
