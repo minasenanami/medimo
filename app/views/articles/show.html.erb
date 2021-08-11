@@ -1,4 +1,4 @@
-<%= "#{@article.user.name} が#{l @article.updated_at, format: :medium}に更新" %>
+<%= "#{@article.user.name} が#{update_data(@article)}に更新" %>
 
 <p>タグ
   <%= render "tags" %>
@@ -28,7 +28,7 @@
   <%= render "nonmember"%>
 <% end %>
 
-<% if @article.user == current_user %>
+<% if author?(@article) %>
   <p>
     <%= link_to "編集", edit_article_path(@article) %>
     <%= link_to "削除", article_path(@article), method: :delete, data: { confirm: "削除しますか？" } %>

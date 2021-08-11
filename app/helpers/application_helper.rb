@@ -8,4 +8,25 @@ module ApplicationHelper
       "mw-xl"
     end
   end
+
+  def author?(article)
+    article.user == current_user
+  end
+
+  def creation_date(article)
+    l article.created_at, format: :medium
+  end
+
+  def update_data(article)
+    l article.updated_at, format: :medium
+  end
+
+  def user_icon(user, size)
+    case size
+    when "medium"
+      user.avatar.variant(resize: "60x60").processed
+    when "small"
+      user.avatar.variant(resize: "50x50").processed
+    end
+  end
 end

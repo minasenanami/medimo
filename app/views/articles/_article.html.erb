@@ -5,7 +5,7 @@
       <span><%= link_to tag.tag_name,tag_articles_path(tag_id: tag.id) %></span>
     <% end %>
   </p>
-  <p><%= l article.created_at, format: :medium %></p>
+  <p><%= creation_date(article) %></p>
   <h4><%= link_to "#{article.title}", article_path(article) %></h4>
   <p>いいね！<%= article.likes_count%></p>
   <hr>
