@@ -1,10 +1,12 @@
-<%= "#{@article.user.name} が#{update_data(@article)}に更新" %>
+<%= image_tag user_icon(@article.user, "small") %>
+<%= link_to "@#{@article.user.name}", mypage_path(@article.user.id) %>
+<%= "が#{update_data(@article)}に更新" %>
 
+<h1><%= @article.title %></h1>
 <p>タグ
   <%= render "tags" %>
 </p>
 
-<h1><%= @article.title %></h1>
 <%= @article.content %>
 
 <% if user_signed_in? %>
@@ -23,7 +25,6 @@
       <%= render "dont_keep", article: @article %>
     <% end %>
   </p>
-
 <% else %>
   <%= render "non_member"%>
 <% end %>
