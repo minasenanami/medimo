@@ -1,6 +1,4 @@
 <p>保存した記事一覧</p>
 
-<% @articles.each do |article| %>
-  <p><%= link_to article.title, article_path(article) %></p>
-<% end  %>
+<%= render @articles %>
 <%= paginate @articles %>

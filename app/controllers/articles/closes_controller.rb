@@ -7,6 +7,7 @@ class Articles::ClosesController < ApplicationController
 
   def show
     @article = current_user.articles.closed.find(params[:id])
+    @article_tags = @article.tags
   end
 
   private

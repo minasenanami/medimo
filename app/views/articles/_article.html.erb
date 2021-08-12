@@ -1,12 +1,23 @@
 <div>
-  <%= link_to "#{article.user.name}", mypage_path(article.user.id) %>
+  <%= image_tag user_icon(article.user, "small") %>
+  <%= link_to "@#{article.user.name}", mypage_path(article.user.id) %>
+  <%= "が#{creation_date(article)}に投稿" %>
   <p>タグ
     <% article.tags.each do |tag| %>
       <span><%= link_to tag.tag_name,tag_articles_path(tag_id: tag.id) %></span>
     <% end %>
   </p>
-  <p><%= creation_date(article) %></p>
   <h4><%= link_to "#{article.title}", article_path(article) %></h4>
   <p>いいね！<%= article.likes_count%></p>
+
+  <% if user_signed_in? %>
+    <p id="article-keep-<%= article.id %>">
+    <% if article.kept_by?(current_user) %>
+      <%= render "articles/keep", article: article %>
+    <% else %>
+      <%= render "articles/dont_keep", article: article %>
+    <% end %>
+    </p>
+  <% end %>
   <hr>
 </div>
