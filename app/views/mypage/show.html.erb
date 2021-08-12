@@ -1,14 +1,14 @@
 
-<h3><%= link_to "プロフィール編集", profile_edit_path %></h3>
-<%= image_tag @user.avatar %>
-<p>名前</p>
-<%= @user.name %>
-<p>投稿本数</p>
-<%= @user.articles.count %>本
-<p>プロフィール</p>
+<%= image_tag user_icon(@user, "small") %>
+<p><%= "@#{@user.name}" %></p>
+<p><%= "投稿数#{@user.articles.count}" %></p>
+
 <%= @user.profile %>
 
-<p>投稿記事</p>
+<% if account_owner?(@user) %>
+  <h3><%= link_to "プロフィール編集", profile_edit_path %></h3>
+<% end %>
+<h4>最近の投稿</h4>
 
 <%= render @articles %>
 <%= paginate @articles %>

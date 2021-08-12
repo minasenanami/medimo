@@ -13,6 +13,10 @@ module ApplicationHelper
     article.user == current_user
   end
 
+  def account_owner?(user)
+    user.id == current_user.id
+  end
+
   def creation_date(article)
     l article.created_at, format: :medium
   end
