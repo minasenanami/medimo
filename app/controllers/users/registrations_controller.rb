@@ -1,6 +1,5 @@
 class Users::RegistrationsController < Devise::RegistrationsController
   before_action :ensure_normal_user, only: %i[profile_update update destroy] # rubocop:disable Rails/LexicallyScopedActionFilter
-
   def ensure_normal_user
     if current_user.email == "guest@example.com"
       redirect_to mypage_path(current_user), alert: "ゲストユーザーは更新・削除はできません。"
@@ -8,6 +7,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def profile_edit
+    redirect_to root_path, alert: "ログインしてください" if current_user.blank?
   end
 
   def profile_update
