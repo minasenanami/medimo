@@ -20,12 +20,12 @@
     <% if @article.kept_by?(current_user) %>
       <%= render "keep", article: @article %>
     <% else %>
-      <%= render "dontkeep", article: @article %>
+      <%= render "dont_keep", article: @article %>
     <% end %>
   </p>
 
 <% else %>
-  <%= render "nonmember"%>
+  <%= render "non_member"%>
 <% end %>
 
 <% if author?(@article) %>
