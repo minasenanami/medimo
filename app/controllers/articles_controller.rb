@@ -58,7 +58,8 @@ class ArticlesController < ApplicationController
 
   def search
     @tag = Tag.find(params[:tag_id])
-    @articles = @tag.articles.published.order(updated_at: :desc).page(params[:page]).per(PER_PAGE)
+    @articles = @tag.articles.published.includes(:keeps, :tags, :tag_maps,
+                                                 user: { avatar_attachment: :blob }).order(created_at: :desc).page(params[:page]).per(PER_PAGE)
   end
 
   private
