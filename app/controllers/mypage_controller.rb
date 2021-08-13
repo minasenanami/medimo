@@ -2,7 +2,8 @@ class MypageController < ApplicationController
   before_action :authenticate_user!, only: %i[index show]
   # 保存した記事一覧のページ
   def index
-    @articles = current_user.kept_articles.order(created_at: :desc).page(params[:page]).per(PER_PAGE)
+    @articles = current_user.kept_articles.includes(:tag_maps, :tags, :keeps,
+                                                    user: { avatar_attachment: :blob }).order(created_at: :desc).page(params[:page]).per(PER_PAGE)
   end
 
   def show
