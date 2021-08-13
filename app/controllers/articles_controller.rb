@@ -5,7 +5,8 @@ class ArticlesController < ApplicationController
 
   def index
     @q = Article.published.ransack(params[:q])
-    @search_articles = @q.result.page(params[:page]).per(PER_PAGE)
+    @search_articles = @q.result.order(created_at: :desc).includes(:keeps, :tags, :tag_maps,
+                                                                   user: { avatar_attachment: :blob }).page(params[:page]).per(PER_PAGE)
   end
 
   def new
