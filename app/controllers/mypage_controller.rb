@@ -6,7 +6,7 @@ class MypageController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
-    @articles = @user.articles.published.order(updated_at: :desc).page(params[:page]).per(PER_PAGE)
+    @user = User.with_attached_avatar.find(params[:id])
+    @articles = @user.articles.published.includes(:keeps, :tags, :tag_maps).order(created_at: :desc).page(params[:page]).per(PER_PAGE)
   end
 end
