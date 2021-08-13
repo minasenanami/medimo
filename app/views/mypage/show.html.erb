@@ -1,7 +1,7 @@
 
 <%= image_tag user_icon(@user, "small") %>
 <p><%= "@#{@user.name}" %></p>
-<p><%= "投稿数#{@user.articles.count}" %></p>
+<p><%= "投稿数#{@user.articles.published.count}" %></p>
 
 <%= @user.profile %>
 
