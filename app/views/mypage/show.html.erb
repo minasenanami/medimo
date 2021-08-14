@@ -27,13 +27,15 @@
     </div>
 
     <div class="mb-5 tab-pane fade" id="draft" role="tabpanel" aria-labelledby="draft-tab">
-      <div class="ml-1 mt-5 mb-2"><%= link_to "下書き記事一覧", articles_closes_path %></div>
+      <div class="ml-1 mt-5 mb-2"></div>
       <%= render partial: "articles/drafts/draft_article", collection: @draft_articles %>
+      <%= link_to "下書き記事一覧へ", articles_drafts_path %>
     </div>
 
     <div class="mb-5 tab-pane fade" id="closed" role="tabpanel" aria-labelledby="closed-tab">
-      <div class="ml-1 mt-5 mb-2"><%= link_to "非公開記事一覧", articles_drafts_path %></div>
+      <div class="ml-1 mt-5 mb-2"></div>
       <%= render partial: "articles/closes/closed_article", collection: @closed_articles %>
+      <%= link_to "非公開記事一覧へ", articles_closes_path %>
     </div>
   </div>
 <% else %>
