@@ -5,7 +5,7 @@
 
 <%= @user.profile %>
 
-<% if account_owner?(@user) %>
+<% if user_signed_in? && account_owner?(@user) %>
   <h3><%= link_to "プロフィール編集", profile_edit_path %></h3>
 <% end %>
 <h4>最近の投稿</h4>
