@@ -9,5 +9,7 @@ class MypageController < ApplicationController
   def show
     @user = User.with_attached_avatar.find(params[:id])
     @articles = @user.articles.published.includes(:keeps, :tags, :tag_maps).order(created_at: :desc).page(params[:page]).per(PER_PAGE)
+    @draft_articles = @user.articles.draft.order(created_at: :desc).limit(PER_PAGE)
+    @closed_articles = @user.articles.closed.order(created_at: :desc).limit(PER_PAGE)
   end
 end
