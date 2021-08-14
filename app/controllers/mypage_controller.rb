@@ -3,7 +3,7 @@ class MypageController < ApplicationController
   # 保存した記事一覧のページ
   def index
     @articles = current_user.kept_articles.includes(:tag_maps, :tags, :keeps,
-                                                    user: { avatar_attachment: :blob }).order(created_at: :desc).page(params[:page]).per(PER_PAGE)
+                                                    user: { avatar_attachment: :blob }).order("keeps.created_at desc").page(params[:page]).per(PER_PAGE)
   end
 
   def show
