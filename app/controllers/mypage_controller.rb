@@ -1,5 +1,5 @@
 class MypageController < ApplicationController
-  before_action :authenticate_user!, only: %i[index show]
+  before_action :authenticate_user!, only: %i[index]
   # 保存した記事一覧のページ
   def index
     @articles = current_user.kept_articles.includes(:tag_maps, :tags, :keeps,

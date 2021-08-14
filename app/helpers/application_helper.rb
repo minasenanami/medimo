@@ -14,7 +14,7 @@ module ApplicationHelper
   end
 
   def account_owner?(user)
-    user.id == current_user.id
+    current_user.id.to_s == params[:id]
   end
 
   def creation_date(article)
