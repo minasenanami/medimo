@@ -19,6 +19,7 @@ class User < ApplicationRecord
 
   validates :name, presence: true
   validates :profile, length: { maximum: 200 }
+  validates :email, { uniqueness: { case_sensitive: false } }
 
   def self.guest
     find_or_create_by!(email: "guest@example.com") do |user|
