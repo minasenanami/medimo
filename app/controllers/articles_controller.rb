@@ -53,6 +53,7 @@ class ArticlesController < ApplicationController
 
   def destroy
     @article.destroy!
+    @article.images.purge
     redirect_to mypage_path(current_user)
   end
 
