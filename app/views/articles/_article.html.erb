@@ -1,5 +1,5 @@
 <div>
-  <%= image_tag user_icon(article.user, "small") %>
+  <%= image_tag user_icon(article.user, "list") %>
   <%= link_to "@#{article.user.name}", mypage_path(article.user.id) %>
   <%= "が#{creation_date(article)}に投稿" %>
   <p>タグ
