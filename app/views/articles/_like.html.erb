@@ -1,2 +1,4 @@
-<%= link_to "★", article_likes_path(article), method: :delete, remote: true %>
+<%= link_to article_likes_path(article), method: :delete, remote: true do %>
+  <i class="fas fa-heart"></i>
+<% end %>
 <%= article.likes_count %>
