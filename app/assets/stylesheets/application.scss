@@ -57,6 +57,13 @@ body {
   background-color: #9ddcdc;
 }
 
+/* 未ログイン時 */
+.user-relation-link {
+  list-style-type: none;
+  .user-relation-text {
+    color: #fff;
+  }
+}
 // フラッシュ
 
 .alert-notice {
