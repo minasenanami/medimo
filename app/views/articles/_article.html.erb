@@ -1,18 +1,18 @@
 <div class="article">
   <div class="article-header">
     <%= image_tag user_icon(article.user, "list") %>
-    <%= link_to "@#{article.user.name}", mypage_path(article.user.id) %>
+    <%= link_to "@#{article.user.name}", mypage_path(article.user.id), class:"erb-link" %>
     <%= "が#{creation_date(article)}に投稿" %>
   </div>
   <div class="article-tags">
     <p><i class="fas fa-tags"></i>
       <% article.tags.each do |tag| %>
-        <span><%= link_to tag.tag_name,tag_articles_path(tag_id: tag.id) %></span>
+        <span><%= link_to tag.tag_name,tag_articles_path(tag_id: tag.id),class:"erb-link" %></span>
       <% end %>
     </p>
   </div>
   <div class="article-content">
-    <h4><%= link_to "#{article.title}", article_path(article) %></h4>
+    <h4><%= link_to "#{article.title}", article_path(article), class:"erb-link" %></h4>
   </div>
 
   <p>いいね！<%= article.likes_count%></p>
