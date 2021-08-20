@@ -19,6 +19,8 @@ $fa-font-path: "@fortawesome/fontawesome-free/webfonts";
 @import "@fortawesome/fontawesome-free/scss/fontawesome";
 @import "@fortawesome/fontawesome-free/scss/regular";
 
+/* ベースカラー */
+$main-color: #9ddcdc;
 /* 全体 */
 
 .base-container {
@@ -26,6 +28,10 @@ $fa-font-path: "@fortawesome/fontawesome-free/webfonts";
   padding: 1rem;
 }
 
+.erb-link {
+  text-decoration: none;
+  color: black;
+}
 /* max-width */
 
 .mw-sm {
@@ -49,12 +55,18 @@ $fa-font-path: "@fortawesome/fontawesome-free/webfonts";
 body {
   font-family: "Helvetica Neue", "Helvetica", "Hiragino Sans",
     "Hiragino Kaku Gothic ProN", "Arial", "Yu Gothic", "Meiryo", sans-serif;
+  background-color: #fff4e1;
   padding-top: 80px;
 }
 
 /* header */
 .header {
-  background-color: #9ddcdc;
+  background-color: $main-color;
+  .logo {
+    width: 150px;
+    height: 50px;
+    margin-left: -5px;
+  }
   .header-link {
     list-style-type: none;
     .header-text {
@@ -65,20 +77,50 @@ body {
     }
   }
   .navbar-toggler {
-    border: 4px solid white;
-    border-color: white;
+    border: 4px solid #fff;
+    border-color: #fff;
   }
   .navbar-toggler-icon {
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255, 255, 255, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='3' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
   }
 }
 
+/* _article */
+.article {
+  background-color: rgb(248, 248, 248);
+  border-top: 1px solid rgb(202, 200, 200);
+  border-bottom: 1px solid rgb(202, 200, 200);
+  margin: 0 0 -1px;
+  padding: 16px 16px 0px 16px;
+  width: 100%;
+  .reaction {
+    display: flex;
+    justify-content: space-between;
+    .like-icon {
+      color: #e67a7a;
+      font-size: 20px;
+      margin-right: 8px;
+    }
+    .keep,
+    .dont-keep {
+      font-size: 40px;
+      transform: translateY(-40px);
+      color: $main-color;
+    }
+  }
+}
+
+.user-icon {
+  border-radius: 50%;
+}
 // フラッシュ
 
 .alert-notice {
   @extend .alert-success;
+  margin-top: -5px;
 }
 
 .alert-alert {
   @extend .alert-danger;
+  margin-top: -5px;
 }

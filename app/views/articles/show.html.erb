@@ -1,5 +1,5 @@
-<%= image_tag user_icon(@article.user, "list") %>
-<%= link_to "@#{@article.user.name}", mypage_path(@article.user.id) %>
+<%= image_tag user_icon(@article.user, "list"), class:"user-icon" %>
+<%= link_to "@#{@article.user.name}", mypage_path(@article.user.id), class:"erb-link" %>
 <%= "が#{update_data(@article)}に更新" %>
 
 <h1><%= @article.title %></h1>
@@ -35,4 +35,4 @@
     <%= link_to "削除", article_path(@article), method: :delete, data: { confirm: "削除しますか？" } %>
   </p>
 <% end %>
-<%= link_to "投稿一覧へ", root_path %>
+<%= link_to "投稿一覧へ", root_path, class:"erb-link" %>
