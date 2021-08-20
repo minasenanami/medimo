@@ -1,11 +1,11 @@
 <%= form_with model: @article, local: true do |f| %>
   <p>
     <%= f.label :title, class:"form-label"  %>
-    <%= f.text_field :title, placeholder: "タイトル", required: true, class:"form-control" %>
+    <%= f.text_field :title, placeholder: "タイトル", required: true, class:"form-control form" %>
   </p>
   <p>
     <%= f.label :tag_name, class:"form-label" %>
-    <%= f.text_field :tag_name, value: @tag_list, placeholder: "スペース区切りで入力 (例: 外科 手術)", class:"form-control" %>
+    <%= f.text_field :tag_name, value: @tag_list, placeholder: "スペース区切りで入力 (例: 外科 手術)", class:"form-control form" %>
   </p>
   <p>
     <%= f.label :content %>

@@ -113,6 +113,13 @@ body {
 .user-icon {
   border-radius: 50%;
 }
+
+/* _form */
+.form {
+  border: 1px solid $main-color;
+  height: 50px;
+}
+
 // フラッシュ
 
 .alert-notice {
