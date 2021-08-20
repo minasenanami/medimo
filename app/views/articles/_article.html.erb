@@ -1,23 +1,30 @@
-<div>
-  <%= image_tag user_icon(article.user, "list") %>
-  <%= link_to "@#{article.user.name}", mypage_path(article.user.id) %>
-  <%= "が#{creation_date(article)}に投稿" %>
-  <p>タグ
-    <% article.tags.each do |tag| %>
-      <span><%= link_to tag.tag_name,tag_articles_path(tag_id: tag.id) %></span>
-    <% end %>
-  </p>
-  <h4><%= link_to "#{article.title}", article_path(article) %></h4>
-  <p>いいね！<%= article.likes_count%></p>
-
-  <% if user_signed_in? %>
-    <p id="article-keep-<%= article.id %>">
-    <% if article.kept_by?(current_user) %>
-      <%= render "articles/keep", article: article %>
-    <% else %>
-      <%= render "articles/dont_keep", article: article %>
-    <% end %>
+<div class="article">
+  <div class="article-header">
+    <%= image_tag user_icon(article.user, "list") %>
+    <%= link_to "@#{article.user.name}", mypage_path(article.user.id) %>
+    <%= "が#{creation_date(article)}に投稿" %>
+  </div>
+  <div class="article-tags">
+    <p><i class="fas fa-tags"></i>
+      <% article.tags.each do |tag| %>
+        <span><%= link_to tag.tag_name,tag_articles_path(tag_id: tag.id) %></span>
+      <% end %>
     </p>
-  <% end %>
-  <hr>
+  </div>
+  <div class="article-content">
+    <h4><%= link_to "#{article.title}", article_path(article) %></h4>
+  </div>
+
+  <p>いいね！<%= article.likes_count%></p>
+  <div class="article-keep">
+    <% if user_signed_in? %>
+      <p id="article-keep-<%= article.id %>">
+      <% if article.kept_by?(current_user) %>
+        <%= render "articles/keep", article: article %>
+      <% else %>
+        <%= render "articles/dont_keep", article: article %>
+      <% end %>
+      </p>
+    <% end %>
+  </div>
 </div>
