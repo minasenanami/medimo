@@ -84,11 +84,17 @@ body {
   border-top: 1px solid rgb(202, 200, 200);
   border-bottom: 1px solid rgb(202, 200, 200);
   margin: 0 0 -1px;
-  padding: 16px;
+  padding: 16px 16px 0px 16px;
   width: 100%;
   .reaction {
     display: flex;
     justify-content: space-between;
+    .keep,
+    .dont-keep {
+      font-size: 40px;
+      transform: translateY(-30px);
+      color: #9ddcdc;
+    }
   }
 }
 // フラッシュ
