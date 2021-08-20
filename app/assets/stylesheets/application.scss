@@ -91,6 +91,11 @@ body {
   .reaction {
     display: flex;
     justify-content: space-between;
+    .like-icon {
+      color: #e67a7a;
+      font-size: 20px;
+      margin-right: 8px;
+    }
     .keep,
     .dont-keep {
       font-size: 40px;

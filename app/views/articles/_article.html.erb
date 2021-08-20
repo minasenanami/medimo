@@ -16,7 +16,7 @@
   </div>
 
   <div class="reaction">
-    <p class="like-count">いいね！<%= article.likes_count%></p>
+    <p><i class="far fa-heart like-icon"></i><%= article.likes_count%></p>
     <% if user_signed_in? %>
       <p id="article-keep-<%= article.id %>">
       <% if article.kept_by?(current_user) %>
