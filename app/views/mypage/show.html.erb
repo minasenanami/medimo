@@ -1,5 +1,5 @@
 
-<%= image_tag user_icon(@user, "mypage") %>
+<%= image_tag user_icon(@user, "mypage"), class:"user-icon" %>
 <p><%= "@#{@user.name}" %></p>
 <p><%= "投稿数#{@user.articles.published.count}" %></p>
 

@@ -1,4 +1,4 @@
-<%= image_tag user_icon(@article.user, "list") %>
+<%= image_tag user_icon(@article.user, "list"), class:"user-icon" %>
 <%= link_to "@#{@article.user.name}", mypage_path(@article.user.id), class:"erb-link" %>
 <%= "が#{update_data(@article)}に更新" %>
 
