@@ -86,6 +86,10 @@ body {
   margin: 0 0 -1px;
   padding: 16px;
   width: 100%;
+  .reaction {
+    display: flex;
+    justify-content: space-between;
+  }
 }
 // フラッシュ
 
