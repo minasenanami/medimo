@@ -113,6 +113,39 @@ body {
 .user-icon {
   border-radius: 50%;
 }
+
+/* _form */
+.form {
+  border: 1px solid $main-color;
+  height: 50px;
+}
+.post-button {
+  margin-top: 10px;
+  // width: 90px;
+  width: 100%;
+  height: 50px;
+  color: #fff;
+  background-color: $main-color;
+  border: 1px solid $main-color;
+  border-radius: 10px;
+  font-weight: bold;
+  letter-spacing: 0.5em;
+}
+
+/* devise関連のボタン */
+.devise-main-button {
+  background-color: $main-color;
+  color: #fff;
+}
+.devise-negative-button {
+  background-color: #e67a7a;
+  color: #fff;
+}
+.devise-other-button {
+  background-color: #847f7d;
+  color: #fff;
+}
+
 // フラッシュ
 
 .alert-notice {
