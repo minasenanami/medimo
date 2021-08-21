@@ -132,6 +132,20 @@ body {
   letter-spacing: 0.5em;
 }
 
+/* devise関連のボタン */
+.devise-main-button {
+  background-color: $main-color;
+  color: #fff;
+}
+.devise-negative-button {
+  background-color: #e67a7a;
+  color: #fff;
+}
+.devise-other-button {
+  background-color: #847f7d;
+  color: #fff;
+}
+
 // フラッシュ
 
 .alert-notice {
