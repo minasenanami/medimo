@@ -29,6 +29,8 @@ module ApplicationHelper
     case size
     when "mypage"
       user.avatar.variant(resize: "72x72").processed
+    when "profile"
+      user.avatar.variant(resize: "64x64").processed
     when "header"
       user.avatar.variant(resize: "32x32").processed
     when "list"
