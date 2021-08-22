@@ -12,8 +12,8 @@ Rails.application.routes.draw do
   end
 
   namespace :articles do
-    resources :drafts, only: [:index, :show]
-    resources :closes, only: [:index, :show]
+    resources :drafts, only: [:index, :show, :destroy]
+    resources :closes, only: [:index, :show, :destroy]
   end
 
   resources :articles do
