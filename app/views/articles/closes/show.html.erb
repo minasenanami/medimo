@@ -8,7 +8,7 @@
     <%= render "articles/tags" %>
   </p>
   <%= @article.content %>
-  <div class="author">
+  <div class="author d-flex justify-content-end">
     <%= link_to edit_article_path(@article), class:"btn main-btn" do %>
       <i class="fas fa-pen edit-icon"></i>編集
     <% end %>
