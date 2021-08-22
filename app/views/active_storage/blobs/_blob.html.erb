@@ -1,5 +1,5 @@
 <figure class="attachment attachment--<%= blob.representable? ? "preview" : "file" %> attachment--<%= blob.filename.extension %>">
-  <%= image_tag blob.variant(resize: "300x300").processed if blob.representable?%>
+  <%= image_tag blob.variant(resize: "600").processed if blob.representable?%>
 
   <figcaption class="attachment__caption">
     <% if caption = blob.try(:caption) %>
