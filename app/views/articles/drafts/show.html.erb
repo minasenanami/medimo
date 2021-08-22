@@ -2,10 +2,10 @@
   <h1><%= @article.title %></h1>
   <%= @article.content %>
   <div class="author">
-    <%= link_to edit_article_path(@article), class:"btn devise-main-button" do %>
+    <%= link_to edit_article_path(@article), class:"btn main-btn" do %>
       <i class="fas fa-pen edit-icon"></i>編集
     <% end %>
-     <%= link_to "#", class:"btn devise-negative-button" do %>
+     <%= link_to "#", class:"btn negative-btn" do %>
           <i class="fas fa-trash-alt edit-icon"></i>削除
     <% end %>
   </div>

@@ -36,10 +36,10 @@
   <% end %>
   <div class="author">
     <% if author?(@article) %>
-        <%= link_to edit_article_path(@article), class:"btn devise-main-button" do %>
+        <%= link_to edit_article_path(@article), class:"btn main-btn" do %>
           <i class="fas fa-pen edit-icon"></i>編集
         <% end %>
-        <%= link_to article_path(@article), method: :delete, data: { confirm: "削除しますか？" }, class:"btn devise-negative-button" do %>
+        <%= link_to article_path(@article), method: :delete, data: { confirm: "削除しますか？" }, class:"btn negative-btn" do %>
           <i class="fas fa-trash-alt edit-icon"></i>削除
         <% end %>
     <% end %>

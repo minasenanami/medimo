@@ -1,22 +1,21 @@
-// Place all the styles related to the Articles controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
+@import "variables.scss";
+
 .article-show {
-  background-color: rgb(248, 248, 248);
+  background-color: $article-list-color;
   padding: 1rem;
 }
 
 .reaction {
   margin-top: 1rem;
-  background-color: rgb(248, 248, 248);
+  background-color: $article-list-color;
   display: flex;
   justify-content: space-between;
 
   .like-icon {
-    color: #e67a7a;
+    color: $accent-color;
     margin: 0 0.5rem;
     &:hover {
-      text-decoration-color: rgb(248, 248, 248);
+      text-decoration-color: $article-list-color;
     }
   }
   .like-count {
@@ -24,7 +23,7 @@
   }
   .keep-icon {
     margin: 0 0.5rem;
-    color: #9ddcdc;
+    color: $main-color;
   }
   .keep-icon,
   .like-icon {
@@ -43,7 +42,7 @@
 }
 
 .modal-header {
-  background-color: #7ec2c2;
+  background-color: $main-color;
   color: #fff;
   .close {
     color: #fff;
@@ -51,6 +50,6 @@
 }
 .modal-body,
 .modal-footer {
-  background-color: #fff4e1;
+  background-color: $main-background-color;
   border: none;
 }

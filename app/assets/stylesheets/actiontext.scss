@@ -8,7 +8,9 @@
 // We need to override trix.css’s image gallery styles to accommodate the
 // <action-text-attachment> element we wrap around attachments. Otherwise,
 // images in galleries will be squished by the max-width: 33%; rule.
+@import "variables.scss";
 .trix-content {
+  background-color: $article-list-color;
   .attachment-gallery {
     > action-text-attachment,
     > .attachment {
