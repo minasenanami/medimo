@@ -15,7 +15,6 @@ class Articles::ClosesController < ApplicationController
     redirect_to mypage_path(current_user)
   end
 
-
   private
 
     def closed_owner

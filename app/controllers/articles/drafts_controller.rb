@@ -16,6 +16,7 @@ class Articles::DraftsController < ApplicationController
   end
 
   private
+
     def draft_owner
       @article = current_user.articles.draft.find_by(id: params[:id])
       unless @article
