@@ -4,9 +4,13 @@
   background-color: $article-list-color;
   padding: 1rem;
 }
+.user-profile {
+  background-color: $article-list-color;
+  margin-top: 1.5rem;
+  padding: 1rem;
+}
 
 .reaction {
-  margin-top: 1rem;
   background-color: $article-list-color;
   display: flex;
   justify-content: space-between;
