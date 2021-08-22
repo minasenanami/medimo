@@ -28,9 +28,21 @@ $main-color: #9ddcdc;
   padding: 1rem;
 }
 
-.erb-link {
+a:hover {
   text-decoration: none;
+}
+
+.erb-link {
   color: black;
+  &:hover {
+    color: black;
+  }
+}
+.erb-link-btn {
+  color: #fff;
+  &:hover {
+    color: #fff;
+  }
 }
 /* max-width */
 
@@ -98,13 +110,11 @@ body {
     justify-content: space-between;
     .like-icon {
       color: #e67a7a;
-      font-size: 20px;
-      margin-right: 8px;
+      font-size: 2rem;
+      margin-right: 0.5rem;
     }
-    .keep,
-    .dont-keep {
-      font-size: 40px;
-      transform: translateY(-40px);
+    .keep-icon {
+      font-size: 2.5rem;
       color: $main-color;
     }
   }
