@@ -34,11 +34,14 @@
   <% else %>
     <%= render "non_member"%>
   <% end %>
+  <div class="author">
+    <% if author?(@article) %>
+        <%= link_to edit_article_path(@article), class:"btn devise-main-button" do %>
+          <i class="fas fa-pen edit-icon"></i>編集
+        <% end %>
+        <%= link_to article_path(@article), method: :delete, data: { confirm: "削除しますか？" }, class:"btn devise-negative-button" do %>
+          <i class="fas fa-trash-alt edit-icon"></i>削除
+        <% end %>
+    <% end %>
+  </div>
 </div>
-
-  <% if author?(@article) %>
-    <p>
-      <%= link_to "編集", edit_article_path(@article) %>
-      <%= link_to "削除", article_path(@article), method: :delete, data: { confirm: "削除しますか？" } %>
-    </p>
-  <% end %>
