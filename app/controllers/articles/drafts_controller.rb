@@ -1,5 +1,5 @@
 class Articles::DraftsController < ApplicationController
-  before_action :draft_owner, only: [:show]
+  before_action :draft_owner, only: [:show, :destroy]
   before_action :authenticate_user!, only: %i[index show]
 
   def index
@@ -7,11 +7,15 @@ class Articles::DraftsController < ApplicationController
   end
 
   def show
-    @article = current_user.articles.draft.find(params[:id])
+  end
+
+  def destroy
+    @article.destroy!
+    @article.images.purge
+    redirect_to mypage_path(current_user)
   end
 
   private
-
     def draft_owner
       @article = current_user.articles.draft.find_by(id: params[:id])
       unless @article
