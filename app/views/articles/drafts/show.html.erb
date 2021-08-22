@@ -1,3 +1,9 @@
-<%= @article.title %>
-<%= @article.content %>
-<%= link_to "編集", edit_article_path(@article) %>
+<div class="article-show mw-md mx-auto">
+  <h1><%= @article.title %></h1>
+  <%= @article.content %>
+  <div class="author">
+    <%= link_to edit_article_path(@article), class:"btn devise-main-button" do %>
+      <i class="fas fa-pen edit-icon"></i>編集
+    <% end %>
+  </div>
+</div>
