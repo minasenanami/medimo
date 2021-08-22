@@ -28,12 +28,12 @@
   </div>
 
   <div class="form-group">
-    <%= f.submit t('.update'), class: 'btn btn-block devise-main-button' %>
+    <%= f.submit t('.update'), class: 'btn btn-block main-btn' %>
   </div>
 <% end %>
 
 <hr class="my-5">
 
-<p><%= link_to t('.cancel_my_account'), registration_path(resource_name), data: { confirm: t('.are_you_sure') }, method: :delete, class: "btn btn-block devise-negative-button" %></p>
+<p><%= link_to t('.cancel_my_account'), registration_path(resource_name), data: { confirm: t('.are_you_sure') }, method: :delete, class: "btn btn-block negative-btn" %></p>
 
-<%= link_to "戻る", :back, class: "btn btn-block devise-other-button" %>
+<%= link_to "戻る", :back, class: "btn btn-block other-btn" %>

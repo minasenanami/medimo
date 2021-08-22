@@ -1,4 +1,19 @@
-<h1><%= @article.title %></h1>
-<%= render "articles/tags" %>
-<%= @article.content %>
-<%= link_to "編集", edit_article_path(@article) %>
+<div class="article-show mw-md mx-auto">
+  <h1><%= @article.title %></h1>
+  <p>
+    <%= link_to "@#{@article.user.name}", mypage_path(@article.user.id), class:"erb-link" %>
+    <%= "が#{update_data(@article)}に更新" %>
+  </p>
+  <p><i class="fas fa-tags"></i>
+    <%= render "articles/tags" %>
+  </p>
+  <%= @article.content %>
+  <div class="author">
+    <%= link_to edit_article_path(@article), class:"btn main-btn" do %>
+      <i class="fas fa-pen edit-icon"></i>編集
+    <% end %>
+    <%= link_to "#", class:"btn negative-btn" do %>
+          <i class="fas fa-trash-alt edit-icon"></i>削除
+    <% end %>
+  </div>
+</div>
