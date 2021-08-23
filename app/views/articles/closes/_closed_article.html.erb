@@ -1,4 +1,6 @@
-<div>
-  <h4><%= link_to "#{closed_article.title}", articles_close_path(closed_article), class:"erb-link" %></h4>
-  <hr>
+<div class="article">
+  <div class="update-time text-end">
+    <%= "#{update_data(closed_article)}に更新" %>
+  </div>
+  <h3><%= link_to "#{closed_article.title}", articles_close_path(closed_article), class:"erb-link" %></h3>
 </div>
