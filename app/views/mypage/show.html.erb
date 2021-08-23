@@ -13,7 +13,7 @@
   </div>
 </div>
 <% if user_signed_in? && account_owner?(@user) %>
-  <h3><%= link_to "プロフィール編集", profile_edit_path %></h3>
+  <%= link_to "プロフィール編集", profile_edit_path, class:"btn btn-block main-btn" %>
 
   <ul class="text-center nav nav-tabs" id="myTab" role="tablist">
     <li class="nav-item bg-light">

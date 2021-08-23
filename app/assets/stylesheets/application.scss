@@ -19,9 +19,8 @@ $fa-font-path: "@fortawesome/fontawesome-free/webfonts";
 @import "@fortawesome/fontawesome-free/scss/fontawesome";
 @import "@fortawesome/fontawesome-free/scss/regular";
 @import "variables";
-/* ベースカラー */
-/* 全体 */
 
+/* 全体 */
 .base-container {
   margin: 0 auto;
   padding: 1rem;
@@ -43,8 +42,8 @@ a:hover {
     color: #fff;
   }
 }
-/* max-width */
 
+/* max-width */
 .mw-sm {
   max-width: 576px;
 }
