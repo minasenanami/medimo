@@ -3,7 +3,7 @@ class Articles::DraftsController < ApplicationController
   before_action :authenticate_user!, only: %i[index show]
 
   def index
-    @draft_articles = current_user.articles.draft.order(updated_at: :desc)
+    @draft_articles = current_user.articles.draft.order(updated_at: :desc).page(params[:page]).per(PER_PAGE)
   end
 
   def show
