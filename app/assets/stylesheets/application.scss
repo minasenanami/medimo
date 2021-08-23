@@ -164,3 +164,23 @@ body {
   @extend .alert-danger;
   margin-top: -5px;
 }
+
+/* ページネーション */
+.page-item.active .page-link {
+  background: $sub-color;
+  border-color: $sub-color;
+}
+.pagination {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  li {
+    a {
+      color: $main-color;
+      &:hover {
+        background-color: $main-color;
+        color: #fff;
+      }
+    }
+  }
+}
