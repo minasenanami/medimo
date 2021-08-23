@@ -36,16 +36,12 @@
 
     <div class="tab-pane fade" id="draft" role="tabpanel" aria-labelledby="draft-tab">
       <%= render partial: "articles/drafts/draft_article", collection: @draft_articles %>
-      <div class="article-guide">
-        <%= link_to "下書き記事一覧へ", articles_drafts_path, class:"erb-link-btn btn btn-block main-btn" %>
-      </div>
+      <%= link_to "下書き記事一覧へ", articles_drafts_path, class:"erb-link-btn btn btn-block main-btn" %>
     </div>
 
     <div class="tab-pane fade" id="closed" role="tabpanel" aria-labelledby="closed-tab">
       <%= render partial: "articles/closes/closed_article", collection: @closed_articles %>
-      <div class="article-guide">
-        <%= link_to "非公開記事一覧へ", articles_closes_path, class:"erb-link-btn btn btn-block main-btn" %>
-      </div>
+      <%= link_to "非公開記事一覧へ", articles_closes_path, class:"erb-link-btn btn btn-block main-btn" %>
     </div>
   </div>
 <% else %>

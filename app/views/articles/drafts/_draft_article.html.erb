@@ -1,6 +1,6 @@
 <div class="article">
   <h3><%= link_to "#{draft_article.title}", articles_draft_path(draft_article), class:"erb-link" %></h3>
   <time datetime="<%= draft_article.created_at %>" class="text-muted">
-    <%= "#{time_ago_in_words(draft_article.created_at)}前に作成されました" %>
+    <%= "#{time_ago_in_words(draft_article.updated_at)}前" %>
   </time>
 </div>
