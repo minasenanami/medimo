@@ -1,4 +1,4 @@
-<div class="article-show">
+<div class="article-show text-break">
   <%= image_tag user_icon(@article.user, "list"), class:"user-icon" %>
   <%= link_to "@#{@article.user.name}", mypage_path(@article.user.id), class:"erb-link" %>
   <%= "が#{update_data(@article)}に更新" %>
@@ -36,7 +36,7 @@
   <% end %>
 </div>
 
-<div class="user-profile">
+<div class="user-profile text-break">
   <%= image_tag user_icon(@article.user, "profile"), class:"user-icon" %>
   <%= link_to "@#{@article.user.name}", mypage_path(@article.user.id), class:"erb-link" %>
   <p><%= simple_format(@article.user.profile)%></p>

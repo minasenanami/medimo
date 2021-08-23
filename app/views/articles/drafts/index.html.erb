@@ -1,2 +1,3 @@
-<h1>下書き記事一覧</h1>
+<h1 class="text-center">下書き記事一覧</h1>
 <%= render partial: "draft_article", collection: @draft_articles %>
+<%= paginate @draft_articles%>

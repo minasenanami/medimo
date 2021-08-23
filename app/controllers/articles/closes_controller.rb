@@ -2,7 +2,7 @@ class Articles::ClosesController < ApplicationController
   before_action :closed_owner, only: [:show, :destroy]
   before_action :authenticate_user!, only: [:index, :show]
   def index
-    @closed_articles = current_user.articles.closed.order(updated_at: :desc)
+    @closed_articles = current_user.articles.closed.order(updated_at: :desc).page(params[:page]).per(PER_PAGE)
   end
 
   def show
