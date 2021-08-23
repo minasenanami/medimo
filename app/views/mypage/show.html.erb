@@ -12,24 +12,24 @@
     </div>
   </div>
 </div>
-<% if user_signed_in? && account_owner?(@user) %>
-  <%= link_to "プロフィール編集", profile_edit_path, class:"btn btn-block main-btn" %>
 
-  <ul class="text-center nav nav-tabs" id="myTab" role="tablist">
+<% if user_signed_in? && account_owner?(@user) %>
+  <%= link_to "プロフィール編集", profile_edit_path, class:"btn btn-block main-btn erb-link-btn mb-4" %>
+
+  <ul class="nav nav-pills" id="myTab" role="tablist">
     <li class="nav-item bg-light">
-      <a class="nav-link active link-text" id="published-tab" data-toggle="tab" href="#published" role="tab" aria-controls="published" aria-selected="true">公開記事</a>
+      <a class="nav-link active" id="published-tab" data-toggle="tab" href="#published" role="tab" aria-controls="published" aria-selected="true">公開記事</a>
     </li>
     <li class="nav-item bg-light">
-      <a class="nav-link link-text" id="draft-tab" data-toggle="tab" href="#draft" role="tab" aria-controls="draft" aria-selected="false">下書き</a>
+      <a class="nav-link" id="draft-tab" data-toggle="tab" href="#draft" role="tab" aria-controls="draft" aria-selected="false">下書き</a>
     </li>
     <li class="nav-item bg-light">
-      <a class="nav-link link-text" id="closed-tab" data-toggle="tab" href="#closed" role="tab" aria-controls="closed" aria-selected="false">非公開</a>
+      <a class="nav-link" id="closed-tab" data-toggle="tab" href="#closed" role="tab" aria-controls="closed" aria-selected="false">非公開</a>
     </li>
   </ul>
 
   <div class="tab-content" id="myTabContent">
     <div class="tab-pane fade show active" id="published" role="tabpanel" aria-labelledby="published-tab">
-      <div class="ml-1 mt-3 mb-2"></div>
       <%= render @articles %>
       <%= paginate @articles %>
     </div>

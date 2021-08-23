@@ -9,3 +9,15 @@
     align-items: center;
   }
 }
+
+.nav-pills {
+  .nav-item {
+    .nav-link.active {
+      background-color: $main-color;
+    }
+  }
+  .nav-link,
+  &:hover {
+    color: $main-color;
+  }
+}
