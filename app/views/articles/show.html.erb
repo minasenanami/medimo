@@ -3,7 +3,7 @@
   <%= link_to "@#{@article.user.name}", mypage_path(@article.user.id), class:"erb-link" %>
   <%= "が#{update_data(@article)}に更新" %>
 
-  <h1><%= @article.title %></h1>
+  <h2 class="my-3"><%= @article.title %></h2>
   <p><i class="fas fa-tags"></i>
     <%= render "tags" %>
   </p>

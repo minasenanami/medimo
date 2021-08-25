@@ -1,5 +1,5 @@
 <div class="article-show">
-  <h1><%= @article.title %></h1>
+  <h2 class="my-3"><%= @article.title %></h2>
   <%= @article.content %>
   <div class="author d-flex justify-content-end">
     <%= link_to edit_article_path(@article), class:"btn main-btn" do %>
