@@ -4,7 +4,7 @@
     <%= link_to "@#{article.user.name}", mypage_path(article.user.id), class:"erb-link" %>
     <%= "が#{creation_date(article)}に投稿" %>
   </div>
-  <div class="article-tags">
+  <div class="article-tags mt-2">
     <p><i class="fas fa-tags"></i>
       <% article.tags.each do |tag| %>
         <span><%= link_to tag.tag_name,tag_articles_path(tag_id: tag.id),class:"erb-link" %></span>
