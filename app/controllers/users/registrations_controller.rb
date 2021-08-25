@@ -19,6 +19,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
     end
   end
 
+  def update
+    current_user.update(configure_account_update_params)
+  end
+
   protected
 
     def configure_account_update_params
