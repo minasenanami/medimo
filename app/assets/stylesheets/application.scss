@@ -160,8 +160,19 @@ body {
   color: #fff;
 }
 
-// フラッシュ
+.alert-danger {
+  background-color: $accent-color;
+  color: #fff;
+  .close {
+    color: #fff;
+    opacity: 1;
+    &:hover {
+      color: #fff;
+    }
+  }
+}
 
+// フラッシュ
 .alert-notice {
   background-color: $sub-color;
   color: #fff;
