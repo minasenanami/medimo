@@ -11,7 +11,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def profile_update
-    current_user.update(account_update_params)
+    current_user.update!(account_update_params)
     if current_user.save
       redirect_to mypage_path(current_user), notice: "プロフィールを更新しました"
     else
