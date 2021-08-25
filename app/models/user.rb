@@ -5,7 +5,7 @@ class User < ApplicationRecord
   before_create :default_image
 
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+         :rememberable, :validatable
 
   has_one_attached :avatar
 
