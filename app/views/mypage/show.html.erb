@@ -2,11 +2,11 @@
   <div class="container">
     <div class="row">
       <div class="col-12 col-lg-4 user-data">
-        <%= image_tag user_icon(@user, "mypage"), class:"user-icon mt-2" %>
+        <%= image_tag user_icon(@user, "mypage"), class:"user-icon mt-3" %>
         <p><%= "@#{@user.name}" %></p>
         <p><%= "投稿数#{@user.articles.published.count}" %></p>
       </div>
-      <div class="col-12 col-lg-8 mt-4">
+      <div class="col-12 col-lg-8 mt-5">
         <%= simple_format(@user.profile) %>
       </div>
     </div>
