@@ -54,9 +54,9 @@ group :development, :test do
   gem "faker"
   gem "rspec-rails"
 
+  gem "bullet"
   gem "rubocop-rails"
   gem "rubocop-rspec"
-  gem "bullet"
 end
 
 group :development do
