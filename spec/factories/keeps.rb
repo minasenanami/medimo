@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :keep do
-    user { nil }
-    article { nil }
+    user
+    article
   end
 end
