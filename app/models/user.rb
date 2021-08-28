@@ -21,6 +21,8 @@ class User < ApplicationRecord
   validates :profile, length: { maximum: 200 }
   validates :email, { uniqueness: { case_sensitive: false } }
 
+  validate :avatar_check
+
   def self.guest
     find_or_create_by!(email: "guest@example.com") do |user|
       user.password = SecureRandom.urlsafe_base64
@@ -33,6 +35,14 @@ class User < ApplicationRecord
     unless self.avatar.attached?
       self.avatar.attach(io: File.open(Rails.root.join("app", "assets", "images", "event_default.png")), filename: "event_default.png",
                          content_type: "image/png")
+    end
+  end
+
+  def avatar_check
+    if !avatar.content_type.in?(%('image/jpeg image/png image/jpg'))
+      errors.add(:avatar, "はjpeg, png, jpgが保存可能です")
+    elsif avatar.attachment.byte_size >= 5.megabytes
+      errors.add(:avatar, "には最大5MBまでの画像が登録できます")
     end
   end
 end

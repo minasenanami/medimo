@@ -11,10 +11,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def profile_update
-    current_user.update!(account_update_params)
+    current_user.update(account_update_params)
     if current_user.save
       redirect_to mypage_path(current_user), notice: "プロフィールを更新しました"
     else
+      flash.now[:alert] = "画像の保存に失敗しました。 5MB以下の画像ファイルのみ登録可能です"
       render "profile_edit"
     end
   end
