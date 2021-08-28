@@ -1,7 +1,7 @@
 class ArticlesController < ApplicationController
   before_action :correct_user, only: [:edit]
   before_action :set_edit_article, only: %i[edit update destroy]
-  before_action :authenticate_user!, only: %i[create update destroy]
+  before_action :authenticate_user!, only: %i[new create update destroy edit]
 
   def index
     @q = Article.published.ransack(params[:q])
