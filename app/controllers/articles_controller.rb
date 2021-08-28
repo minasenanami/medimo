@@ -21,7 +21,7 @@ class ArticlesController < ApplicationController
       @article.save_tag(@tag_list)
       choose_status
     else
-      flash.now[:alert] = "タイトルを記入してください"
+      flash.now[:alert] = "記事作成に失敗しました"
       render :new
     end
   end
@@ -46,14 +46,13 @@ class ArticlesController < ApplicationController
       @article.save_tag(tag_list)
       choose_status
     else
-      flash.now[:alert] = "タイトルを記入してください"
+      flash.now[:alert] = "記事作成に失敗しました"
       render :edit
     end
   end
 
   def destroy
     @article.destroy!
-    @article.images.purge
     redirect_to mypage_path(current_user)
   end
 
@@ -66,7 +65,7 @@ class ArticlesController < ApplicationController
   private
 
     def article_params
-      params.require(:article).permit(:title, :content, :images, :status)
+      params.require(:article).permit(:title, :content, :status)
     end
 
     def set_edit_article
