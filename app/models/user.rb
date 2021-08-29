@@ -39,6 +39,8 @@ class User < ApplicationRecord
   end
 
   def avatar_check
+    return unless avatar.attached?
+
     if !avatar.content_type.in?(%('image/jpeg image/png image/jpg'))
       errors.add(:avatar, "はjpeg, png, jpgが保存可能です")
     elsif avatar.attachment.byte_size >= 5.megabytes
