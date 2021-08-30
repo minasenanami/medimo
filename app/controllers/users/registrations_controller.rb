@@ -15,7 +15,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     if current_user.save
       redirect_to mypage_path(current_user), notice: "プロフィールを更新しました"
     else
-      flash.now[:alert] = "画像の保存に失敗しました。 5MB以下の画像ファイルのみ登録可能です"
+      flash.now[:alert] = "更新に失敗しました"
       render "profile_edit"
     end
   end
