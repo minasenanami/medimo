@@ -1,7 +1,6 @@
 class ArticlesController < ApplicationController
-  before_action :correct_user, only: [:edit]
-  before_action :set_edit_article, only: %i[edit update destroy]
   before_action :authenticate_user!, only: %i[new create update destroy edit]
+  before_action :correct_user, only: %i[edit update destroy]
 
   def index
     @q = Article.published.ransack(params[:q])
@@ -21,7 +20,7 @@ class ArticlesController < ApplicationController
       @article.save_tag(@tag_list)
       choose_status
     else
-      flash.now[:alert] = "タイトルを記入してください"
+      flash.now[:alert] = "記事作成に失敗しました"
       render :new
     end
   end
@@ -46,14 +45,13 @@ class ArticlesController < ApplicationController
       @article.save_tag(tag_list)
       choose_status
     else
-      flash.now[:alert] = "タイトルを記入してください"
+      flash.now[:alert] = "記事作成に失敗しました"
       render :edit
     end
   end
 
   def destroy
     @article.destroy!
-    @article.images.purge
     redirect_to mypage_path(current_user)
   end
 
@@ -66,11 +64,7 @@ class ArticlesController < ApplicationController
   private
 
     def article_params
-      params.require(:article).permit(:title, :content, :images, :status)
-    end
-
-    def set_edit_article
-      @article = current_user.articles.find(params[:id])
+      params.require(:article).permit(:title, :content, :status)
     end
 
     def correct_user

@@ -21,7 +21,6 @@ class Article < ApplicationRecord
   has_many :tags, through: :tag_maps
 
   has_rich_text :content
-  has_many_attached :images
 
   def liked_by?(user)
     likes.any? {|like| like.user_id == user.id }

@@ -55,3 +55,8 @@ Rails/UnknownEnv:
 # seedに"put"でメッセージを表示したい
 Rails/Output:
   Enabled: false
+
+
+# save・update時に条件分岐を使用したい
+Rails/SaveBang:
+  Enabled: false
