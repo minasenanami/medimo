@@ -35,7 +35,7 @@ RSpec.describe Article, type: :model do
       end
     end
 
-    context "statusがdraftのとき" do
+    context "statusがdraft" do
       context "contentがnilでも" do
         let(:article) { build(:article, :draft, content: nil) }
         it "下書き記事を作成できる" do
@@ -45,7 +45,7 @@ RSpec.describe Article, type: :model do
       end
     end
 
-    context "statusがclosedのとき" do
+    context "statusがclosed" do
       context "contentがnilでも" do
         let(:article) { build(:article, :closed, content: nil) }
         it "非公開記事を作成できる" do
@@ -54,7 +54,6 @@ RSpec.describe Article, type: :model do
         end
       end
     end
-
   end
 
   describe "異常系" do
