@@ -4,24 +4,24 @@
   <%= bootstrap_devise_error_messages! %>
 
   <div class="form-group">
-    <%= f.label :email %>
+    <%= f.label :email, class:"label_color" %>
     <%= f.email_field :email, autocomplete: 'email', class: 'form-control form' %>
   </div>
 
   <div class="form-group">
-    <%= f.label :password %>
+    <%= f.label :password, class:"label_color" %>
     <%= f.password_field :password, autocomplete: 'new-password', class: 'form-control form' %>
 
     <small class="form-text text-muted"><%= t('.leave_blank_if_you_don_t_want_to_change_it') %></small>
   </div>
 
   <div class="form-group">
-    <%= f.label :password_confirmation %>
+    <%= f.label :password_confirmation, class:"label_color" %>
     <%= f.password_field :password_confirmation, autocomplete: 'new-password', class: 'form-control form'  %>
   </div>
 
   <div class="form-group">
-    <%= f.label :current_password %>
+    <%= f.label :current_password, class:"label_color" %>
     <%= f.password_field :current_password, autocomplete: 'current-password', class: 'form-control form' %>
 
     <small class="form-text text-muted"><%= t('.we_need_your_current_password_to_confirm_your_changes') %></small>
