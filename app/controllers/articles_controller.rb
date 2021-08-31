@@ -20,7 +20,7 @@ class ArticlesController < ApplicationController
       @article.save_tag(@tag_list)
       choose_status
     else
-      flash.now[:alert] = "記事作成に失敗しました"
+      flash.now[:alert] = "記事の作成に失敗しました"
       render :new
     end
   end

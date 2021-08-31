@@ -2,6 +2,7 @@ class Article < ApplicationRecord
   with_options presence: true do
     validates :title
     validates :status
+    validates :content, presence: true, if: -> { status == "published" }
   end
 
   enum status: {

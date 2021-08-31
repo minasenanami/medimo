@@ -44,7 +44,7 @@ class User < ApplicationRecord
     if !avatar.content_type.in?(%('image/jpeg image/png image/jpg'))
       errors.add(:avatar, "はjpeg, png, jpgが保存可能です")
     elsif avatar.attachment.byte_size >= 5.megabytes
-      errors.add(:avatar, "には最大5MBまでの画像が登録できます")
+      errors.add(:avatar, "は最大5MBまでの画像が登録できます")
     end
   end
 end
