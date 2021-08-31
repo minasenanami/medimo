@@ -1,15 +1,18 @@
 User.destroy_all
 Article.destroy_all
+Tag.destroy_all
+TagMap.destroy_all
 
-name = "test_user"
-email = "test@example.com"
-password = "password"
+require "csv"
 
-# テストユーザーが存在しないときだけ作成
-User.find_or_create_by!(email: email) do |user|
-  user.name = name
-  user.password = password
+puts "ユーザーデータのインポートを開始します"
+
+user_data_list = []
+CSV.foreach("db/csv_data/user_data.csv", headers: true) do |row|
+  user_data_list << { name: row["name"], email: row["email"], password: row["password"], profile: row["profile"] }
 end
 
-user = User.first
-user.articles.create!(title: "test投稿", content: "testユーザの作成記事", status: 0)
+User.create!(user_data_list)
+user1, user2, user3, user4, user5, user6 = User.all
+
+puts "ユーザーデータのインポートに成功しました"
