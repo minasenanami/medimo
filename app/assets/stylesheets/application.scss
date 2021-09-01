@@ -30,8 +30,12 @@ $fa-font-path: "@fortawesome/fontawesome-free/webfonts";
   color: #6c757d;
 }
 
-a:hover {
-  text-decoration: none;
+a {
+  color: $main-color;
+  &:hover {
+    color: $main-color;
+    text-decoration: none;
+  }
 }
 
 .erb-link {
