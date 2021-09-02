@@ -5,17 +5,14 @@ Article.destroy_all
 Tag.destroy_all
 TagMap.destroy_all
 
-
-
-
 #------------------------ ゲストユーザー作成 --------------------------------------
 
-guest_user_profile = <<~EOS
-機能制限中につき以下は行えません
-・プロフィール変更
-・登録内容の変更
-・ユーザーの削除
-EOS
+guest_user_profile = <<~TEXT
+  機能制限中につき以下は行えません
+  ・プロフィール変更
+  ・登録内容の変更
+  ・ユーザーの削除
+TEXT
 
 NAME = "ゲストユーザー".freeze
 EMAIL = "guest@example.com".freeze
@@ -27,8 +24,6 @@ User.create!(name: NAME, email: EMAIL, password: PASSWORD, profile: PROFILE)
 puts "ゲストユーザーが作成されました"
 
 #------------------------ ゲストユーザー作成 --------------------------------------
-
-
 
 #------------------------ ユーザーデータ作成 --------------------------------------
 puts "ユーザーデータのインポートを開始します"
@@ -42,10 +37,19 @@ User.create!(user_data_list)
 
 user1, user2, user3, user4, user5, user6 = User.all
 
+def setting_avatar(user, avatar)
+  user.avatar.attach(io: File.open(Rails.root.join("app/assets/images/#{avatar}")),
+                     filename: avatar)
+end
+setting_avatar(user2, "user_icon2.png")
+setting_avatar(user3, "user_icon3.png")
+setting_avatar(user4, "user_icon4.png")
+setting_avatar(user5, "user_icon5.png")
+setting_avatar(user6, "user_icon6.png")
+
 puts "ユーザーデータのインポートに成功しました"
 
 #------------------------ ユーザーデータ作成 --------------------------------------
-
 
 #------------------------ 記事データ作成 --------------------------------------
 
@@ -66,8 +70,6 @@ puts "記事データのインポートが完了しました"
 
 #------------------------ 記事データ作成 --------------------------------------
 
-
-
 #------------------------ 保存データの作成 --------------------------------------
 KEEPS_COUNT = 15
 puts "保存データの作成を開始"
@@ -78,7 +80,6 @@ end
 puts "保存データの作成に成功しました"
 
 #------------------------ 保存データの作成 --------------------------------------
-
 
 #------------------------ いいねデータの作成 --------------------------------------
 LIKES_COUNT = 5
@@ -102,38 +103,32 @@ puts "いいねデータの作成に成功しました"
 
 #------------------------ いいねデータの作成 --------------------------------------
 
-
-
-
-
-
 #------------------------ タグデータ作成 --------------------------------------
 
 puts "タグデータを作成します"
 
 create_tag_list = []
 tag_list = %w[ ICU 救急 １‐２年目向け 意識レベル確認 JCS ジャパンコーマスケール
-  意識レベルの確認 GCS グラスゴーコーマスケール 輸血製剤 輸血の確認 輸血の量
-  頭蓋内圧亢進症状 クッシング徴候 脳浮腫 カテーテル検査 アンギオ 血管造影法
-  申し送り ６R 輸液ポンプ 精神科 国家試験 過去問 仕事メモ 作業メモ ]
+               意識レベルの確認 GCS グラスゴーコーマスケール 輸血製剤 輸血の確認 輸血の量
+               頭蓋内圧亢進症状 クッシング徴候 脳浮腫 カテーテル検査 アンギオ 血管造影法
+               申し送り ６R 輸液ポンプ 精神科 国家試験 過去問 仕事メモ 作業メモ ]
 
+tag_list.each do |tag|
+  create_tag_list << { tag_name: tag }
+end
+Tag.create!(create_tag_list)
 
-  tag_list.each do |tag|
-    create_tag_list << { tag_name: tag }
-  end
-  Tag.create!(create_tag_list)
+puts "タグデータの作成に成功しました"
 
-  puts "タグデータの作成に成功しました"
-
-  puts "記事にランダムでタグ付けを開始します"
-  tag_maps = []
-  30.times do
-    tag = Tag.pluck(:id).sample
-    article = Article.published.pluck(:id).sample
-    tag_maps << {article_id: article, tag_id: tag}
-  end
-  TagMap.create!(tag_maps)
-  puts "タグ付けが完了しました"
+puts "記事にランダムでタグ付けを開始します"
+tag_maps = []
+30.times do
+  tag = Tag.pluck(:id).sample
+  article = Article.published.pluck(:id).sample
+  tag_maps << { article_id: article, tag_id: tag }
+end
+TagMap.create!(tag_maps)
+puts "タグ付けが完了しました"
 
 #------------------------ タグデータ作成 --------------------------------------
 
