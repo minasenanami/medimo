@@ -63,3 +63,34 @@ import_article("user3_article_data.csv", user3)
 puts "記事データのインポートが完了しました"
 
 #------------------------ 記事データ作成 --------------------------------------
+
+
+
+#------------------------ 保存データの作成 --------------------------------------
+KEEPS_COUNT = 15
+puts "保存データの作成を開始"
+target = Article.published.pluck(:id).sample(KEEPS_COUNT)
+target.each do |article|
+  user1.keeps.create!(article_id: article)
+end
+puts "保存データの作成に成功しました"
+
+#------------------------ 保存データの作成 --------------------------------------
+
+
+#------------------------ いいねデータの作成 --------------------------------------
+LIKES_COUNT = 5
+puts "いいねデータの作成を開始"
+
+def create_likes(user)
+  like_target = Article.published.pluck(:id).sample(LIKES_COUNT)
+  like_target.each do |article|
+    user.likes.create!(article_id: article)
+  end
+end
+
+create_likes(user1)
+create_likes(user2)
+puts "いいねデータの作成に成功しました"
+
+#------------------------ いいねデータの作成 --------------------------------------
