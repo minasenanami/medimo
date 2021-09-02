@@ -6,6 +6,8 @@ Tag.destroy_all
 TagMap.destroy_all
 
 
+
+
 #------------------------ ゲストユーザー作成 --------------------------------------
 
 guest_user_profile = <<~EOS
@@ -91,6 +93,48 @@ end
 
 create_likes(user1)
 create_likes(user2)
+create_likes(user3)
+create_likes(user4)
+create_likes(user5)
+create_likes(user6)
+
 puts "いいねデータの作成に成功しました"
 
 #------------------------ いいねデータの作成 --------------------------------------
+
+
+
+
+
+
+#------------------------ タグデータ作成 --------------------------------------
+
+puts "タグデータを作成します"
+
+create_tag_list = []
+tag_list = %w[ ICU 救急 １‐２年目向け 意識レベル確認 JCS ジャパンコーマスケール
+  意識レベルの確認 GCS グラスゴーコーマスケール 輸血製剤 輸血の確認 輸血の量
+  頭蓋内圧亢進症状 クッシング徴候 脳浮腫 カテーテル検査 アンギオ 血管造影法
+  申し送り ６R 輸液ポンプ 精神科 国家試験 過去問 仕事メモ 作業メモ ]
+
+
+  tag_list.each do |tag|
+    create_tag_list << { tag_name: tag }
+  end
+  Tag.create!(create_tag_list)
+
+  puts "タグデータの作成に成功しました"
+
+  puts "記事にランダムでタグ付けを開始します"
+  tag_maps = []
+  30.times do
+    tag = Tag.pluck(:id).sample
+    article = Article.published.pluck(:id).sample
+    tag_maps << {article_id: article, tag_id: tag}
+  end
+  TagMap.create!(tag_maps)
+  puts "タグ付けが完了しました"
+
+#------------------------ タグデータ作成 --------------------------------------
+
+puts "初期データの投入が完了しました"
