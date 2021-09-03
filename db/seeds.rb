@@ -120,7 +120,7 @@ Tag.create!(create_tag_list)
 
 puts "タグデータの作成に成功しました"
 
-puts "記事にランダムでタグ付けを開始します"
+puts "記事にタグ付けを開始します"
 tag_maps = []
 30.times do
   tag = Tag.pluck(:id).sample
