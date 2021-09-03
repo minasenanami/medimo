@@ -1,5 +1,5 @@
 class Articles::DraftsController < ApplicationController
-  before_action :draft_owner, only: [:show, :destroy, :index]
+  before_action :draft_owner, only: [:show, :destroy]
   before_action :authenticate_user!, only: %i[index show]
 
   def index
