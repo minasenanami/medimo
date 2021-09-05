@@ -134,7 +134,7 @@ Metrics/CyclomaticComplexity:
 # * 禁止 160文字
 # のイメージ
 Metrics/LineLength:
-  Max: 160
+  Max: 165
   Exclude:
     - "db/migrate/*.rb"
 
