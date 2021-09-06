@@ -4,8 +4,8 @@ class ArticlesController < ApplicationController
 
   def index
     @q = Article.published.ransack(params[:q])
-    @search_articles = @q.result.order(created_at: :desc).includes(:keeps, :tags, :tag_maps,
-                                                                   user: { avatar_attachment: :blob }).page(params[:page]).per(PER_PAGE)
+    @search_articles = @q.result(distinct: true).order(created_at: :desc).includes(:keeps, :tags, :tag_maps,
+                                                                                   user: { avatar_attachment: :blob }).page(params[:page]).per(PER_PAGE)
   end
 
   def new
@@ -57,8 +57,8 @@ class ArticlesController < ApplicationController
 
   def search
     @tag = Tag.find(params[:tag_id])
-    @articles = @tag.articles.published.includes(:keeps, :tags, :tag_maps,
-                                                 user: { avatar_attachment: :blob }).order(created_at: :desc).page(params[:page]).per(PER_PAGE)
+    @articles = @tag.articles.published.distinct.includes(:keeps, :tags, :tag_maps,
+                                                          user: { avatar_attachment: :blob }).order(created_at: :desc).page(params[:page]).per(PER_PAGE)
   end
 
   private
