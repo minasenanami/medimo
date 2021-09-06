@@ -120,6 +120,10 @@
 | 14  |         タグ機能         |             x              |
 | 15  |   記事の公開範囲の設定   |             x              |
 
+
+## ER図
+![ER drawio](https://user-images.githubusercontent.com/66349813/132172399-17104e76-921e-472d-9c76-afc33b414d67.png)
+
 ## 使用技術
 
 - 言語 : Ruby ( 2.7.2 )
