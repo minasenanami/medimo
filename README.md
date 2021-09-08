@@ -5,7 +5,7 @@
 
 ## URL
 - アプリURL: https://medimov1.herokuapp.com
-- Qiitaに詳細記事を準備中です。
+- 開発の経緯や工夫・苦労した点などの詳細談を[Qiita](https://qiita.com/ryo1103/items/973d05c52b2adb3e84b2)に投稿いたしました。
 
 ## アプリ概要
 「看護に関する知識を記録・共有」をテーマにしたアプリで特徴は以下です。
