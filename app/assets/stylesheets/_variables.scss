@@ -6,3 +6,9 @@ $other-color: #847f7d;
 $main-background-color: #fff4e1;
 $article-list-color: #f8f8f8;
 $article-list-border-color: #cac8c8;
+
+@mixin icon_size($size: 25px) {
+  border-radius: 50%;
+  width: $size;
+  height: $size;
+}

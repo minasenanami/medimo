@@ -129,8 +129,16 @@ body {
 .fa-tags {
   color: $accent-color;
 }
-.user-icon {
-  border-radius: 50%;
+
+/* アイコンサイズ */
+.list-user-icon {
+  @include icon_size;
+}
+.profile-user-icon {
+  @include icon_size(64px);
+}
+.mypage-user-icon {
+  @include icon_size(72px);
 }
 
 /* _form */
