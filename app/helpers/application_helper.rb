@@ -18,13 +18,11 @@ module ApplicationHelper
   def user_icon(user, size)
     case size
     when "mypage"
-      user.avatar.variant(resize: "72x72").processed
+      user.avatar
     when "profile"
-      user.avatar.variant(resize: "64x64").processed
-    when "header"
-      user.avatar.variant(resize: "32x32").processed
+      user.avatar
     when "list"
-      user.avatar.variant(resize: "25x25").processed
+      user.avatar
     end
   end
 end
