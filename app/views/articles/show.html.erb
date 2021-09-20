@@ -41,6 +41,7 @@
   <%= link_to "@#{@article.user.name}", mypage_path(@article.user.id), class:"erb-link" %>
   <p><%= simple_format(@article.user.profile)%></p>
 </div>
+<%= link_to "戻る",:back, class: "btn other-btn btn-block"  %>
 
 <div class="author float-right">
   <% if author?(@article) %>
