@@ -12,3 +12,8 @@ $article-list-border-color: #cac8c8;
   width: $size;
   height: $size;
 }
+
+@mixin btn_color($color: $main-color) {
+  background-color: $color;
+  color: #fff;
+}

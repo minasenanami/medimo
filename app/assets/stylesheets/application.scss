@@ -163,16 +163,13 @@ body {
 
 /* ボタン */
 .main-btn {
-  background-color: $main-color;
-  color: #fff;
+  @include btn_color;
 }
 .negative-btn {
-  background-color: $accent-color;
-  color: #fff;
+  @include btn_color($accent-color);
 }
 .other-btn {
-  background-color: $other-color;
-  color: #fff;
+  @include btn_color($other-color);
 }
 
 .alert-danger {
