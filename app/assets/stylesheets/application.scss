@@ -146,17 +146,13 @@ body {
   border: 1px solid $main-color;
   height: 50px;
 }
-.post-button {
-  margin-top: 10px;
-  width: 100%;
-  height: 50px;
-  color: #fff;
-  background-color: $main-color;
-  border: 1px solid $main-color;
-  border-radius: 10px;
-  font-weight: bold;
-  letter-spacing: 0.5em;
+.post-btn {
+  @include article_btn;
 }
+.cancel-btn {
+  @include article_btn($other-color);
+}
+
 .label_color {
   color: #6c757d;
 }
