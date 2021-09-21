@@ -1,0 +1,51 @@
+<div class="profile-contener text-break mt-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-lg-4 user-data">
+        <%= image_tag user_icon(@user, "mypage"), class:"mypage-user-icon mt-3" %>
+        <p><%= "@#{@user.name}" %></p>
+        <p><%= "投稿数#{@user.articles.published.count}" %></p>
+      </div>
+      <div class="col-12 col-lg-8 mt-5">
+        <%= simple_format(@user.profile) %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<% if user_signed_in? && account_owner?(@user) %>
+  <%= link_to "プロフィール編集", profile_edit_path, class:"btn btn-block main-btn erb-link-btn mb-4" %>
+
+  <ul class="nav nav-pills" id="myTab" role="tablist">
+    <li class="nav-item bg-light">
+      <a class="nav-link active" id="published-tab" data-toggle="tab" href="#published" role="tab" aria-controls="published" aria-selected="true">公開記事</a>
+    </li>
+    <li class="nav-item bg-light">
+      <a class="nav-link" id="draft-tab" data-toggle="tab" href="#draft" role="tab" aria-controls="draft" aria-selected="false">下書き</a>
+    </li>
+    <li class="nav-item bg-light">
+      <a class="nav-link" id="closed-tab" data-toggle="tab" href="#closed" role="tab" aria-controls="closed" aria-selected="false">非公開</a>
+    </li>
+  </ul>
+
+  <div class="tab-content" id="myTabContent">
+    <div class="tab-pane fade show active" id="published" role="tabpanel" aria-labelledby="published-tab">
+      <%= render @articles %>
+      <%= paginate @articles %>
+    </div>
+
+    <div class="tab-pane fade" id="draft" role="tabpanel" aria-labelledby="draft-tab">
+      <%= render partial: "articles/drafts/draft_article", collection: @draft_articles %>
+      <%= link_to "下書き記事一覧へ", articles_drafts_path, class:"erb-link-btn btn btn-block main-btn" %>
+    </div>
+
+    <div class="tab-pane fade" id="closed" role="tabpanel" aria-labelledby="closed-tab">
+      <%= render partial: "articles/closes/closed_article", collection: @closed_articles %>
+      <%= link_to "非公開記事一覧へ", articles_closes_path, class:"erb-link-btn btn btn-block main-btn" %>
+    </div>
+  </div>
+<% else %>
+  <h4 class="text-center mt-4">最近の投稿</h4>
+  <%= render @articles %>
+  <%= paginate @articles %>
+<% end %>

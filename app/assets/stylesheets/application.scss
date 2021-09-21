@@ -1,0 +1,209 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+@import "bootstrap/scss/bootstrap";
+$fa-font-path: "@fortawesome/fontawesome-free/webfonts";
+@import "@fortawesome/fontawesome-free/scss/fontawesome";
+@import "@fortawesome/fontawesome-free/scss/regular";
+@import "variables";
+
+/* 全体 */
+.base-container {
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.text-center {
+  color: #6c757d;
+}
+
+a {
+  color: $main-color;
+  &:hover {
+    color: $main-color;
+  }
+}
+
+.erb-link {
+  color: black;
+  &:hover {
+    color: #6c757d;
+  }
+}
+.erb-link-btn {
+  color: #fff;
+  &:hover {
+    color: #fff;
+  }
+}
+
+/* max-width */
+.mw-sm {
+  max-width: 576px;
+}
+
+.mw-md {
+  max-width: 768px;
+}
+
+.mw-lg {
+  max-width: 992px;
+}
+
+.mw-xl {
+  max-width: 1200px;
+}
+
+/* body */
+
+body {
+  font-family: "Helvetica Neue", "Helvetica", "Hiragino Sans",
+    "Hiragino Kaku Gothic ProN", "Arial", "Yu Gothic", "Meiryo", sans-serif;
+  background-color: $main-background-color;
+  padding-top: 80px;
+}
+
+/* header */
+.header {
+  background-color: $main-color;
+  .logo {
+    width: 150px;
+    height: 50px;
+    margin-left: -5px;
+  }
+  .header-link {
+    list-style-type: none;
+    .header-text {
+      color: #fff;
+    }
+    .icon {
+      margin-right: 5px;
+    }
+  }
+  .navbar-toggler {
+    border: 4px solid #fff;
+    border-color: #fff;
+  }
+  .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255, 255, 255, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='3' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+  }
+}
+
+/* _article */
+.article {
+  background-color: $article-list-color;
+  border-top: 1px solid $article-list-border-color;
+  border-bottom: 1px solid $article-list-border-color;
+  margin: 0 0 -1px;
+  padding: 16px 16px 0px 16px;
+  width: 100%;
+  .reaction {
+    display: flex;
+    justify-content: space-between;
+    .like-icon {
+      color: $accent-color;
+      font-size: 2rem;
+      margin-right: 0.5rem;
+    }
+    .keep-icon {
+      font-size: 2.5rem;
+      color: $main-color;
+    }
+  }
+}
+
+.fa-tags {
+  color: $accent-color;
+}
+
+/* アイコンサイズ */
+.list-user-icon {
+  @include icon_size;
+}
+.profile-user-icon {
+  @include icon_size(64px);
+}
+.mypage-user-icon {
+  @include icon_size(72px);
+}
+
+/* _form */
+.form {
+  border: 1px solid $main-color;
+  height: 50px;
+}
+.post-btn {
+  @include article_btn;
+}
+.cancel-btn {
+  @include article_btn($other-color);
+}
+
+.label_color {
+  color: #6c757d;
+}
+
+/* ボタン */
+.main-btn {
+  @include btn_color;
+}
+.negative-btn {
+  @include btn_color($accent-color);
+}
+.other-btn {
+  @include btn_color($other-color);
+}
+
+.alert-danger {
+  background-color: $accent-color;
+  color: #fff;
+  .close {
+    color: #fff;
+    opacity: 1;
+    &:hover {
+      color: #fff;
+    }
+  }
+}
+
+// フラッシュ
+.alert-notice {
+  @include alert_color;
+}
+
+.alert-alert {
+  @include alert_color($accent-color);
+}
+
+/* ページネーション */
+.page-item.active .page-link {
+  background: $sub-color;
+  border-color: $sub-color;
+}
+.pagination {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  li {
+    a {
+      color: $main-color;
+      &:hover {
+        background-color: $main-color;
+        color: #fff;
+      }
+    }
+  }
+}

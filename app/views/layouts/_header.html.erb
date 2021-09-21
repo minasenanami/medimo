@@ -1,0 +1,57 @@
+<nav class="navbar navbar-expand-md fixed-top header">
+  <%= link_to root_path, class: "navbar-brand" do %>
+    <img class="logo" src="/assets/logo/medimo6.png">
+  <% end %>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav ml-auto">
+      <% if user_signed_in? %>
+        <li class="nav-item header-link mr-4">
+          <%= link_to new_article_path, class: "nav-link header-text" do %>
+            <i class="far fa-edit icon"></i>投稿する
+          <% end %>
+        </li>
+        <li class="nav-item header-link">
+          <%= link_to mypage_path(current_user), class: "nav-link header-text" do %>
+             <i class="fas fa-user icon"></i>マイページ
+          <% end %>
+        </li>
+        <li class="nav-item header-link">
+          <%= link_to mypage_index_path, class: "nav-link header-text" do %>
+            <i class="fas fa-notes-medical icon"></i>保存した記事
+          <% end %>
+        </li>
+        <li class="nav-item header-link">
+          <%= link_to edit_user_registration_path, class: "nav-link header-text" do %>
+            <i class="fas fa-wrench icon"></i>設定
+          <% end %>
+        </li>
+        <li class="nav-item header-link">
+          <%= link_to destroy_user_session_path, method: :delete, class: "nav-link header-text" do %>
+            <i class="fas fa-sign-out-alt icon"></i>ログアウト
+          <% end %>
+        <li>
+      <% else %>
+        <li class="nav-item header-link">
+          <%= link_to new_user_registration_path, class: "nav-link header-text" do %>
+            <i class="fas fa-user-plus icon"></i>新規登録
+          <% end %>
+        </li>
+        <li class="nav-item header-link">
+          <%= link_to new_user_session_path, class: "nav-link header-text" do %>
+            <i class="fas fa-sign-in-alt icon"></i>ログイン
+          <% end %>
+        </li>
+        <li class="nav-item header-link">
+          <%= link_to users_guest_sign_in_path, method: :post, class: "nav-link header-text" do %>
+            <i class="fas fa-id-card icon"></i>ゲストログイン
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</nav>

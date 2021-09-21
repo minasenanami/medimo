@@ -1,0 +1,55 @@
+<div class="article-show text-break">
+  <%= image_tag user_icon(@article.user, "list"), class:"list-user-icon" %>
+  <%= link_to "@#{@article.user.name}", mypage_path(@article.user.id), class:"erb-link" %>
+  <%= "が#{update_data(@article)}に更新" %>
+
+  <h2 class="my-3"><%= @article.title %></h2>
+  <p><i class="fas fa-tags"></i>
+    <%= render "tags" %>
+  </p>
+
+  <%= @article.content %>
+</div>
+
+<div class="reaction">
+  <% if user_signed_in? %>
+    <div class="like-icon">
+      <p id="article-like-<%= @article.id %>">
+        <% if @article.liked_by?(current_user) %>
+          <%= render "like", article: @article %>
+        <% else %>
+          <%= render "dislike", article: @article %>
+        <% end %>
+      </p>
+    </div>
+    <div class="keep-icon">
+      <p id="article-keep-<%= @article.id %>">
+        <% if @article.kept_by?(current_user) %>
+          <%= render "keep", article: @article %>
+        <% else %>
+          <%= render "dont_keep", article: @article %>
+        <% end %>
+      </p>
+    </div>
+  <% else %>
+    <%= render "non_member"%>
+  <% end %>
+</div>
+
+<div class="user-profile text-break">
+  <%= image_tag user_icon(@article.user, "profile"), class:"profile-user-icon" %>
+  <%= link_to "@#{@article.user.name}", mypage_path(@article.user.id), class:"erb-link" %>
+  <p><%= simple_format(@article.user.profile)%></p>
+</div>
+<%= link_to "戻る",:back, class: "btn other-btn btn-block"  %>
+
+<div class="author float-right">
+  <% if author?(@article) %>
+      <%= link_to edit_article_path(@article), class:"btn main-btn" do %>
+        <i class="fas fa-pen edit-icon"></i>編集
+      <% end %>
+      <%= link_to article_path(@article), method: :delete, data: { confirm: "削除しますか？" }, class:"btn negative-btn" do %>
+        <i class="fas fa-trash-alt edit-icon"></i>削除
+      <% end %>
+  <% end %>
+</div>

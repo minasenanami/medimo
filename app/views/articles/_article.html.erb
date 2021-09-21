@@ -1,0 +1,30 @@
+<div class="article text-break">
+  <div class="article-header">
+    <%= image_tag user_icon(article.user, "list"), class:"list-user-icon" %>
+    <%= link_to "@#{article.user.name}", mypage_path(article.user.id), class:"erb-link" %>
+    <%= "が#{creation_date(article)}に投稿" %>
+  </div>
+  <div class="article-tags mt-2">
+    <p><i class="fas fa-tags"></i>
+      <% article.tags.each do |tag| %>
+        <span><%= link_to tag.tag_name,tag_articles_path(tag_id: tag.id),class:"erb-link" %></span>
+      <% end %>
+    </p>
+  </div>
+  <div class="article-content">
+    <h4><%= link_to "#{article.title}", article_path(article), class:"btn-block erb-link" %></h4>
+  </div>
+
+  <div class="reaction">
+    <p><i class="far fa-heart like-icon"></i><%= article.likes_count%></p>
+    <% if user_signed_in? %>
+      <p id="article-keep-<%= article.id %>">
+      <% if article.kept_by?(current_user) %>
+        <%= render "articles/keep", article: article %>
+      <% else %>
+        <%= render "articles/dont_keep", article: article %>
+      <% end %>
+      </p>
+    <% end %>
+  </div>
+</div>

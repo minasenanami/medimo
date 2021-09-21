@@ -1,0 +1,3 @@
+<h1 class="text-center">非公開記事一覧</h1>
+<%= render partial: "closed_article", collection: @closed_articles %>
+<%= paginate @closed_articles%>

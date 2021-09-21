@@ -1,0 +1,19 @@
+<div class="article-show">
+  <h2 class="my-3"><%= @article.title %></h2>
+  <p>
+    <%= link_to "@#{@article.user.name}", mypage_path(@article.user.id), class:"erb-link" %>
+    <%= "が#{update_data(@article)}に更新" %>
+  </p>
+  <p><i class="fas fa-tags"></i>
+    <%= render "articles/tags" %>
+  </p>
+  <%= @article.content %>
+  <div class="author d-flex justify-content-end">
+    <%= link_to edit_article_path(@article), class:"btn main-btn" do %>
+      <i class="fas fa-pen edit-icon"></i>編集
+    <% end %>
+    <%= link_to articles_close_path(@article), method: :delete, data: { confirm: "削除しますか？" }, class:"btn negative-btn" do %>
+          <i class="fas fa-trash-alt edit-icon"></i>削除
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,3 @@
+<% @article_tags.each do |tag| %>
+    <span><%= link_to tag.tag_name, tag_articles_path(tag_id: tag.id), class:"erb-link" %></span>
+<% end %>

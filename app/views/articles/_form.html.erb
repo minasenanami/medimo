@@ -1,0 +1,20 @@
+<div class="form-group">
+  <%= form_with model: @article, local: true do |f| %>
+    <%= render "layouts/error_messages", model: @article %>
+    <p>
+      <%= f.label :title, class:"label_color"  %>
+      <%= f.text_field :title, required: true, placeholder: "タイトル", class:"form-control form" %>
+    </p>
+    <p>
+      <%= f.label :tag_name, class:"label_color" %>
+      <%= f.text_field :tag_name, value: @tag_list, placeholder: "スペース区切りで入力 (例: 外科 手術)", class:"form-control form" %>
+    </p>
+    <p>
+      <%= f.label :content, class:"label_color" %>
+      <%= f.rich_text_area :content, placeholder: "あなたの学びを共有しよう" %>
+    </p>
+    <%= f.select :status, Article.statuses_i18n.invert, {}, class: 'form-control form' %>
+    <%= f.submit "投稿", class:"post-btn" %>
+  <% end %>
+  <%= link_to "取り消し",:back, class: "btn btn-block cancel-btn mt-5", data: { confirm: "作成データを破棄しますか？" } %>
+</div>

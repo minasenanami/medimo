@@ -1,0 +1,7 @@
+<h3 class="text-center"><%= "「 #{params[:q]["title_or_tags_tag_name_cont"]} 」での検索結果" %></h3>
+<% if @search_articles.blank? %>
+  <p class="text-center mt-5">該当する記事が見つかりませんでした</p>
+<% else  %>
+  <%= render @search_articles %>
+<% end %>
+<%= paginate @search_articles %>

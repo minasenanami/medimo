@@ -1,0 +1,32 @@
+<div data-toggle="modal" data-target="#exampleModal">
+  <div class="reaction">
+  <p>
+    <div class="like-icon">
+      <i class="far fa-heart like-icon"></i>
+    </div>
+    <div class="keep-icon">
+      <i class="far fa-clipboard keep-icon"></i>
+    </div>
+  </p>
+  </div>
+</div>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">ユーザー登録はお済みですか？</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>この機能を利用するにはログインする必要があります</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn main-btn "><%= link_to "登録する", new_user_registration_path, class:"erb-link-btn" %></button>
+        <button type="button" class="btn main-btn "><%= link_to "ログイン", new_user_session_path, class:"erb-link-btn" %></button>
+      </div>
+    </div>
+  </div>
+</div>
