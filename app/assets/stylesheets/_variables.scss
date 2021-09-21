@@ -29,3 +29,9 @@ $article-list-border-color: #cac8c8;
   font-weight: bold;
   letter-spacing: 0.5em;
 }
+
+@mixin alert_color($color: $sub-color) {
+  background-color: $color;
+  color: #fff;
+  margin-top: -5px;
+} ;
