@@ -1,3 +1,12 @@
+server "54.65.100.10", user: "ryo", roles: %w{app db web}
+
+set :ssh_options, {
+  keys: %w(~/.ssh/medimo.pem),
+  forward_agent: true,
+  auth_methods: %w(publickey),
+}
+
+
 # server-based syntax
 # ======================
 # Defines a single server with a list of roles and multiple properties.
