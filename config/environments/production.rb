@@ -1,4 +1,12 @@
 require "active_support/core_ext/integer/time"
+server "54.65.100.10", user: "ryo", roles: %w{app db web}
+
+set :ssh_options, {
+  keys: %w(~/.ssh/medimo.pem),
+  forward_agent: true,
+  auth_methods: %w(publickey),
+}
+
 
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
