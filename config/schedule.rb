@@ -4,12 +4,12 @@
 # http://en.wikipedia.org/wiki/Cron
 
 # Example:
-require File.expand_path(File.dirname(__FILE__) + "/environment")
+require File.expand_path("#{File.dirname(__FILE__)}/environment")
 set :output, "log/cron_log.log"
-env :PATH, ENV['PATH']
+env :PATH, ENV["PATH"]
 
 # 実行環境の指定
-set :environment, ENV['RAILS_ENV']
+set :environment, ENV["RAILS_ENV"]
 
 every 1.week do
   rake "clean_active_storage_blobs:metadata"
