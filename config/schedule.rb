@@ -5,13 +5,13 @@
 
 # Example:
 require File.expand_path(File.dirname(__FILE__) + "/environment")
-
 set :output, "log/cron_log.log"
+env :PATH, ENV['PATH']
 
 # 実行環境の指定
 set :environment, ENV['RAILS_ENV']
 
-every 3.minute do
+every 1.week do
   rake "clean_active_storage_blobs:metadata"
   rake "clean_tags:tag_name"
 end
