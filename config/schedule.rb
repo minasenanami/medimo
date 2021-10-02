@@ -4,6 +4,7 @@
 # http://en.wikipedia.org/wiki/Cron
 
 # Example:
+require File.expand_path(File.dirname(__FILE__) + "/environment")
 
 set :output, "log/cron_log.log"
 
