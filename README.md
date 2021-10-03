@@ -4,7 +4,7 @@
 
 
 ## URL
-- アプリURL: https://medimov1.herokuapp.com
+- アプリURL: https://medimo.tokyo
 - 開発の経緯や工夫・苦労した点などの詳細談を[Qiita](https://qiita.com/ryo1103/items/973d05c52b2adb3e84b2)に投稿いたしました。
 
 ## アプリ概要
@@ -127,6 +127,9 @@
 ## ER図
 ![ER drawio](https://user-images.githubusercontent.com/66349813/132172399-17104e76-921e-472d-9c76-afc33b414d67.png)
 
+## インフラ構成図
+![configuration_drawing.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/1748419/ad804690-e670-3574-d457-dd2dfd379fd9.png)
+
 ## 使用技術
 
 - 言語 : Ruby ( 2.7.2 )
@@ -134,7 +137,8 @@
 - フロントエンド : HTML&CSS/Bootstrap/Javascript
 - DB : PostgreSQL
 - テスト : RSpec
-- インフラ : Heroku(ステージング環境 → 本番環境)+AWS(S3)
+- (旧)インフラ : Heroku(ステージング環境 → 本番環境)+AWS(S3)
+- (現)インフラ : AWS(VPC, EC2, RDS, S3, ACM, ALB, CloudFront, IAM) + Capistrano
 - ソースコード管理：GitHub(Projects のカンバン方式で issues を作成しタスクを管理)
 
 ## 開発環境
